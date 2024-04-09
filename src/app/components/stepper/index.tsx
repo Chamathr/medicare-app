@@ -59,8 +59,13 @@ const Stepper = () => {
       >
         <Typography>{steps[activeStep].label}</Typography>
       </Paper>
-      <Box sx={{ height: 255, maxWidth: 400, width: '100%', p: 2 }}>
-        {steps[activeStep].description}
+      <Box sx={{ height: 300 }}>
+        <Box sx={{ maxWidth: 400, width: '100%', p: 2 }}>
+          {steps[activeStep].description}
+        </Box>
+        <Box sx={{ maxWidth: 400, width: '100%', p: 2 }}>
+          {steps[activeStep].description}
+        </Box>
       </Box>
       <MobileStepper
         variant="text"
