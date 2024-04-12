@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import { useUserDataStore } from '@/store';
 
 const steps = [
   {
@@ -32,12 +33,16 @@ const steps = [
 ];
 
 const Stepper = () => {
+
+  const { userData, setUserData } = useUserDataStore()
+
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = steps.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setUserData({ ...userData, [activeStep.toString()]: steps[activeStep].description })
   };
 
   const handleBack = () => {
