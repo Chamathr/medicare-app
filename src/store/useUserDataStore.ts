@@ -1,26 +1,28 @@
-import { create } from 'zustand';
+import { create } from "zustand";
+
+interface IScoreData {
+  [key: string]: string;
+}
 
 interface IUserData {
-    [key: string]: string;
+  [key: string]: IScoreData;
 }
 
 interface Store {
-    userData: IUserData | undefined;
+  userData: IUserData | undefined;
 }
 
 interface Actions {
-    setUserData: (data: IUserData) => void;
+  setUserData: (data: IUserData) => void;
 }
 
 const initialState: Store = {
-    userData: undefined,
+  userData: undefined,
 };
 
-const useUserDataStore = create<Store & Actions>(
-    (set) => ({
-        ...initialState,
-        setUserData: (data: IUserData) => set(() => ({ userData: data })),
-    })
-);
+const useUserDataStore = create<Store & Actions>((set) => ({
+  ...initialState,
+  setUserData: (data: IUserData) => set(() => ({ userData: data })),
+}));
 
-export { useUserDataStore }
+export { useUserDataStore };

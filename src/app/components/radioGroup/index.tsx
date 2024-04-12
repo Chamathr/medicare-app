@@ -1,37 +1,61 @@
-import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import { Box } from '@mui/material';
+import * as React from "react";
+import Radio from "@mui/material/Radio";
+import { Box } from "@mui/material";
+import { pink } from "@mui/material/colors";
 
 interface Props {
-    label: string
+  val: string;
+  label: string;
+  handleSelect: (data: string) => void;
 }
 
 const RowRadioButtonsGroup = (Props: Props) => {
+  const { label, handleSelect, val } = Props;
 
-    const { label } = Props
+  const [selectedValue, setSelectedValue] = React.useState(val);
 
-    return (
-        <FormControl>
-            <FormLabel id="demo-row-radio-buttons-group-label">{label}</FormLabel>
-            <RadioGroup
-                row
-                aria-labelledby="demo-row-radio-buttons-group-label"
-                name="row-radio-buttons-group"
-            >
-                <Box sx={{ pl: { sm: 5} }}>
-                    <FormControlLabel value="1" control={<Radio />} label="" />
-                    <FormControlLabel value="2" control={<Radio />} label="" />
-                    <FormControlLabel value="3" control={<Radio />} label="" />
-                    <FormControlLabel value="4" control={<Radio />} label="" />
-                    <FormControlLabel value="5" control={<Radio />} label="" />
-                </Box>
-            </RadioGroup>
-        </FormControl>
-    );
-}
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.value);
+    handleSelect(event.target.value);
+  };
 
-export default RowRadioButtonsGroup
+  const controlProps = (item: string) => ({
+    checked: selectedValue === item,
+    onChange: handleChange,
+    value: item,
+    name: "color-radio-button-demo",
+    inputProps: { "aria-label": item },
+  });
+
+  return (
+    <>
+      <Box
+        sx={{
+          display: { sm: "flex" },
+          justifyContent: { sm: "space-between" },
+        }}
+      >
+        <Box sx={{ display: { sm: "flex" }, alignItems: { sm: "center" } }}>
+          {label}
+        </Box>
+        <Box>
+          <Radio
+            {...controlProps("1")}
+            sx={{
+              color: pink[800],
+              "&.Mui-checked": {
+                color: pink[600],
+              },
+            }}
+          />
+          <Radio {...controlProps("2")} color="default" />
+          <Radio {...controlProps("3")} color="success" />
+          <Radio {...controlProps("4")} color="secondary" />
+          <Radio {...controlProps("5")} />
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+export default RowRadioButtonsGroup;
