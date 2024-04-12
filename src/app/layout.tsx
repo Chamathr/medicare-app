@@ -18,14 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header>
+        <header style={{display: 'flex', justifyContent: 'center'}}>
           {/* Your header content here */}
-          <h1>My Awesome App</h1>
+          <h1>Medicare App</h1>
         </header>
         <main className={styles.main}>{children}</main>
         <footer>
           {/* Your footer content here */}
-          <p>Copyright &copy; 2024</p>
+          <p style={{display: 'flex', justifyContent: 'center'}}>Copyright &copy; 2024</p>
         </footer>
       </body>
     </html>

@@ -10,21 +10,46 @@ import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { useUserDataStore } from '@/store';
+import { Card } from '@mui/material';
 
 const steps = [
   {
-    label: 'Select campaign settings',
+    id: 1,
+    label: 'Step 1',
+    factors: [
+      "Fact 1",
+      "Fact 2",
+      "Fact 3",
+      "Fact 4",
+      "Fact 5"
+    ],
     description: `For each ad campaign that you create, you can control how much
               you're willing to spend on clicks and conversions, which networks
               and geographical locations you want your ads to show on, and more.`,
   },
   {
-    label: 'Create an ad group',
+    id: 2,
+    label: 'Step 2',
+    factors: [
+      "Fact 1",
+      "Fact 2",
+      "Fact 3",
+      "Fact 4",
+      "Fact 5"
+    ],
     description:
       'An ad group contains one or more ads which target a shared set of keywords.',
   },
   {
-    label: 'Create an ad',
+    id: 3,
+    label: 'Step 3',
+    factors: [
+      "Fact 1",
+      "Fact 2",
+      "Fact 3",
+      "Fact 4",
+      "Fact 5"
+    ],
     description: `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads using features like ad extensions.
               If you run into any problems with your ads, find out how to tell if
@@ -42,7 +67,7 @@ const Stepper = () => {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setUserData({ ...userData, [activeStep.toString()]: steps[activeStep].description })
+    setUserData({ ...userData, [(steps[activeStep].id).toString()]: steps[activeStep].description })
   };
 
   const handleBack = () => {
@@ -52,7 +77,7 @@ const Stepper = () => {
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
       <Paper
-        square
+        square={false}
         elevation={0}
         sx={{
           display: 'flex',
@@ -64,13 +89,17 @@ const Stepper = () => {
       >
         <Typography>{steps[activeStep].label}</Typography>
       </Paper>
-      <Box sx={{ height: 300 }}>
+      <Box sx={{ minHeight: 500, display: 'flex', flexDirection: 'column', height: '100%' }}>
         <Box sx={{ maxWidth: 400, width: '100%', p: 2 }}>
           {steps[activeStep].description}
         </Box>
-        <Box sx={{ maxWidth: 400, width: '100%', p: 2 }}>
-          {steps[activeStep].description}
-        </Box>
+        <Card sx={{ maxWidth: 400, width: '100%', p: 4, marginTop: 'auto', mb: 5 }}>
+          {steps[activeStep].factors?.map((item, key) => {
+            return (
+              <Box key={key} sx={{ p: 2 }}>{item}</Box>
+            )
+          })}
+        </Card>
       </Box>
       <MobileStepper
         variant="text"
