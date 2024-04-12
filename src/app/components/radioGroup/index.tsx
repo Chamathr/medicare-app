@@ -2,10 +2,10 @@ import * as React from "react";
 import Radio from "@mui/material/Radio";
 import { Box } from "@mui/material";
 import { pink } from "@mui/material/colors";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
-  radioValue?: number;
+  radioValue: string | undefined;
   label: string;
   handleSelect: (data: string) => void;
 }
@@ -13,7 +13,13 @@ interface Props {
 const RowRadioButtonsGroup = (Props: Props) => {
   const { label, handleSelect, radioValue } = Props;
 
-  const [selectedValue, setSelectedValue] = useState(radioValue?.toString);
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    "0"
+  );
+
+  useEffect(() => {
+    setSelectedValue(radioValue);
+  }, [radioValue]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
@@ -43,7 +49,6 @@ const RowRadioButtonsGroup = (Props: Props) => {
           <Radio
             {...controlProps("1")}
             sx={{
-              color: pink[800],
               "&.Mui-checked": {
                 color: pink[600],
               },

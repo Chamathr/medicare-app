@@ -106,9 +106,9 @@ const Stepper = () => {
                       })
                     }
                     radioValue={
-                      userData?.[steps[activeStep].id.toString()]?.[
-                        (key + 1).toString()
-                      ]
+                      (userData?.[steps[activeStep].id.toString()]?.[
+                        (key + 1)
+                      ])?.toString()
                     }
                   />
                 </Box>
