@@ -3,23 +3,23 @@ import Radio from "@mui/material/Radio";
 import { Box } from "@mui/material";
 import { pink } from "@mui/material/colors";
 import { useEffect, useState } from "react";
+import { IUserData } from "@/store";
 
 interface Props {
   radioValue: string | undefined;
   label: string;
   handleSelect: (data: string) => void;
+  userData: IUserData | undefined
 }
 
 const RowRadioButtonsGroup = (Props: Props) => {
-  const { label, handleSelect, radioValue } = Props;
+  const { label, handleSelect, radioValue, userData } = Props;
 
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(
-    "0"
-  );
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(radioValue ?? "0");
 
   useEffect(() => {
-    setSelectedValue(radioValue);
-  }, [radioValue]);
+    setSelectedValue(radioValue || "0");
+  }, [radioValue, userData]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);

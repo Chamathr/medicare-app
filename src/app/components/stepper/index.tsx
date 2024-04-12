@@ -12,7 +12,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { useUserDataStore } from "@/store";
 import { Card } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const steps = [
   {
@@ -33,16 +33,22 @@ const steps = [
     factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
     description: `Description 3`,
   },
+  {
+    id: 4,
+    label: "Step 4",
+    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
+    description: `Description 4`,
+  },
 ];
 
 const Stepper = () => {
   const { userData, setUserData } = useUserDataStore();
 
-  console.log("userData", userData);
-
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
-  const [scoreData, setScoreData] = useState({});
+  const [scoreData, setScoreData] = useState(
+    userData?.[steps[activeStep].id.toString()] ?? {}
+  );
 
   const maxSteps = steps.length;
 
@@ -52,10 +58,12 @@ const Stepper = () => {
       ...userData,
       [steps[activeStep].id.toString()]: scoreData,
     });
+    setScoreData(userData?.[steps[activeStep + 1].id.toString()] ?? {});
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setScoreData(userData?.[steps[activeStep - 1].id.toString()] ?? {});
   };
 
   return (
@@ -105,11 +113,10 @@ const Stepper = () => {
                         [(key + 1).toString()]: parseInt(data),
                       })
                     }
-                    radioValue={
-                      (userData?.[steps[activeStep].id.toString()]?.[
-                        (key + 1)
-                      ])?.toString()
-                    }
+                    radioValue={userData?.[steps[activeStep].id.toString()]?.[
+                      key + 1
+                    ]?.toString()}
+                    userData={userData}
                   />
                 </Box>
               </>
