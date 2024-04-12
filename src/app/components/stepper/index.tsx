@@ -38,6 +38,8 @@ const steps = [
 const Stepper = () => {
   const { userData, setUserData } = useUserDataStore();
 
+  console.log("userData", userData);
+
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const [scoreData, setScoreData] = useState({});
@@ -100,10 +102,14 @@ const Stepper = () => {
                     handleSelect={(data) =>
                       setScoreData({
                         ...scoreData,
-                        [(key + 1).toString()]: data,
+                        [(key + 1).toString()]: parseInt(data),
                       })
                     }
-                    val={'0'}
+                    radioValue={
+                      userData?.[steps[activeStep].id.toString()]?.[
+                        (key + 1).toString()
+                      ]
+                    }
                   />
                 </Box>
               </>

@@ -2,17 +2,18 @@ import * as React from "react";
 import Radio from "@mui/material/Radio";
 import { Box } from "@mui/material";
 import { pink } from "@mui/material/colors";
+import { useState } from "react";
 
 interface Props {
-  val: string;
+  radioValue?: number;
   label: string;
   handleSelect: (data: string) => void;
 }
 
 const RowRadioButtonsGroup = (Props: Props) => {
-  const { label, handleSelect, val } = Props;
+  const { label, handleSelect, radioValue } = Props;
 
-  const [selectedValue, setSelectedValue] = React.useState(val);
+  const [selectedValue, setSelectedValue] = useState(radioValue?.toString);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
