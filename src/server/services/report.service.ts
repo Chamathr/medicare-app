@@ -1,5 +1,14 @@
 import Report, { IReport } from "../models/report.model";
 
+const getReportList = async () => {
+  try {
+    const report = await Report.find({})
+    return report;
+  } catch (error) {
+    throw error;
+  }
+};
+
 /**
  * create a new report
  * @param data
@@ -71,4 +80,4 @@ const deleteReport = async (id: string) => {
   }
 };
 
-export { createReport, updateReport, getReport, deleteReport };
+export { createReport, updateReport, getReport, deleteReport, getReportList };
