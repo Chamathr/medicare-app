@@ -1,4 +1,4 @@
-import connectDB from "@/app/utils/connectDB";
+import connectDB from "@/utils/connectDB";
 
 const GET = async (request: Request) => {
     connectDB();
