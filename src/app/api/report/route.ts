@@ -1,4 +1,9 @@
-import { createReport, updateReport, getReport, deleteReport } from "@/server/services/report.service";
+import {
+  createReport,
+  updateReport,
+  getReport,
+  deleteReport,
+} from "@/server/services/report.service";
 import connectDB from "@/utils/connectDB";
 
 /**
@@ -31,9 +36,11 @@ const PUT = async (request: Request) => {
     await connectDB();
 
     const body = await request.json();
+    const { searchParams } = new URL(request?.url);
+    const id = searchParams.get("id") as string;
 
     const response = await updateReport({
-      id: "661b6e5289d2da400d7be015",
+      id,
       data: body,
     });
 
@@ -46,14 +53,16 @@ const PUT = async (request: Request) => {
 
 /**
  * get report by id
- * @param request 
- * @returns 
+ * @param request
+ * @returns
  */
 const GET = async (request: Request) => {
   try {
     await connectDB();
 
-    const response = await getReport("661b6e5289d2da400d7be015");
+    const { searchParams } = new URL(request?.url);
+    const id = searchParams.get("id") as string;
+    const response = await getReport(id);
 
     return Response.json({ data: response });
   } catch (error) {
@@ -64,20 +73,22 @@ const GET = async (request: Request) => {
 
 /**
  * delete a report by id
- * @param request 
- * @returns 
+ * @param request
+ * @returns
  */
 const DELETE = async (request: Request) => {
-    try {
-      await connectDB();
-  
-      const response = await deleteReport("661b6e5289d2da400d7be015");
-  
-      return Response.json({ data: response });
-    } catch (error) {
-      console.log("Error", error);
-      return Response.error();
-    }
-  };
+  try {
+    await connectDB();
+
+    const { searchParams } = new URL(request?.url);
+    const id = searchParams.get("id") as string;
+    const response = await deleteReport(id);
+
+    return Response.json({ data: response });
+  } catch (error) {
+    console.log("Error", error);
+    return Response.error();
+  }
+};
 
 export { POST, GET, PUT, DELETE };
