@@ -23,7 +23,7 @@ const createReport = async (data: IReport) => {
     }
     const reportData = new Report({ name, age, email, report, score });
     await reportData.save();
-    return "Successfully saved";
+    return reportData;
   } catch (error) {
     throw error;
   }
