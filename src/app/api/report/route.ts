@@ -1,4 +1,4 @@
-import { createReport, updateReport, getReport } from "@/server/services/report.service";
+import { createReport, updateReport, getReport, deleteReport } from "@/server/services/report.service";
 import connectDB from "@/utils/connectDB";
 
 /**
@@ -62,4 +62,22 @@ const GET = async (request: Request) => {
   }
 };
 
-export { POST, GET, PUT };
+/**
+ * delete a report by id
+ * @param request 
+ * @returns 
+ */
+const DELETE = async (request: Request) => {
+    try {
+      await connectDB();
+  
+      const response = await deleteReport("661b6e5289d2da400d7be015");
+  
+      return Response.json({ data: response });
+    } catch (error) {
+      console.log("Error", error);
+      return Response.error();
+    }
+  };
+
+export { POST, GET, PUT, DELETE };

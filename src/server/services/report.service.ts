@@ -1,4 +1,4 @@
-import Report, { IReport } from "../models/report.model"
+import Report, { IReport } from "../models/report.model";
 
 /**
  * create a new report
@@ -22,8 +22,8 @@ const createReport = async (data: IReport) => {
 
 /**
  * update a report
- * @param param0 
- * @returns 
+ * @param param0
+ * @returns
  */
 const updateReport = async ({ id, data }: { id: string; data: IReport }) => {
   try {
@@ -39,8 +39,8 @@ const updateReport = async ({ id, data }: { id: string; data: IReport }) => {
 
 /**
  * get a report by id
- * @param id 
- * @returns 
+ * @param id
+ * @returns
  */
 const getReport = async (id: string) => {
   try {
@@ -54,4 +54,21 @@ const getReport = async (id: string) => {
   }
 };
 
-export { createReport, updateReport, getReport };
+/**
+ * delete a report by id
+ * @param id
+ * @returns
+ */
+const deleteReport = async (id: string) => {
+  try {
+    const report = await Report.findByIdAndDelete(id);
+    if (!report) {
+      throw new Error("User not found");
+    }
+    return report;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { createReport, updateReport, getReport, deleteReport };
