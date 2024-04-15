@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import { useUserDataStore } from "@/store";
+import { IReport, IUser, useUserDataStore } from "@/store";
 import { Card } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useEffect, useState } from "react";
@@ -44,26 +44,34 @@ const steps = [
 const Stepper = () => {
   const { userData, setUserData } = useUserDataStore();
 
+  const reportData = userData?.report as IReport
+  const userDetails = userData?.user as IUser
+
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const [scoreData, setScoreData] = useState(
-    userData?.[steps[activeStep].id.toString()] ?? {}
+    reportData?.[steps[activeStep].id.toString()] ?? {}
   );
+
+  console.log("userData", userData)
 
   const maxSteps = steps.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setUserData({
-      ...userData,
-      [steps[activeStep].id.toString()]: scoreData,
+      user: userDetails,
+      report: {
+        ...reportData,
+        [steps[activeStep].id.toString()]: scoreData,
+      },
     });
-    setScoreData(userData?.[steps[activeStep + 1].id.toString()] ?? {});
+    setScoreData(reportData?.[steps[activeStep + 1].id.toString()] ?? {});
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    setScoreData(userData?.[steps[activeStep - 1].id.toString()] ?? {});
+    setScoreData(reportData?.[steps[activeStep - 1].id.toString()] ?? {});
   };
 
   return (
@@ -113,7 +121,7 @@ const Stepper = () => {
                         [(key + 1).toString()]: parseInt(data),
                       })
                     }
-                    radioValue={userData?.[steps[activeStep].id.toString()]?.[
+                    radioValue={reportData?.[steps[activeStep].id.toString()]?.[
                       key + 1
                     ]?.toString()}
                     userData={userData}

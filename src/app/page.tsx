@@ -1,10 +1,12 @@
-import Stepper from "./components/stepper";
+import FormComponent from "./components/form";
 
-export default function Home() {
-  
+const Form: React.FC = () => {
+
   return (
     <>
-      <Stepper />
+      <FormComponent/>
     </>
   );
-}
+};
+
+export default Form;

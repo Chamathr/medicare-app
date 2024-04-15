@@ -7,7 +7,18 @@ interface IScoreData {
 }
 
 export interface IUserData {
+  user: IUser | undefined;
+  report: IReport | undefined;
+}
+
+export interface IReport {
   [key: string]: IScoreData;
+}
+
+export interface IUser {
+  name: string;
+  email: string;
+  age: number;
 }
 
 interface Store {
