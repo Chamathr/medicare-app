@@ -13,6 +13,7 @@ import { IReport, IUser, useUserDataStore } from "@/store";
 import { Card } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useEffect, useState } from "react";
+import { getScore } from "@/utils/report";
 
 const steps = [
   {
@@ -44,16 +45,14 @@ const steps = [
 const Stepper = () => {
   const { userData, setUserData } = useUserDataStore();
 
-  const reportData = userData?.report as IReport
-  const userDetails = userData?.user as IUser
+  const reportData = userData?.report as IReport;
+  const userDetails = userData?.user as IUser;
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const [scoreData, setScoreData] = useState(
     reportData?.[steps[activeStep].id.toString()] ?? {}
   );
-
-  console.log("userData", userData)
 
   const maxSteps = steps.length;
 
@@ -72,6 +71,33 @@ const Stepper = () => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
     setScoreData(reportData?.[steps[activeStep - 1].id.toString()] ?? {});
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const report = {
+        ...userData?.report,
+        [steps[activeStep].id.toString()]: scoreData,
+      };
+
+      const response = await fetch("/api/report", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: userData?.user?.name,
+          email: userData?.user?.email,
+          age: userData?.user?.age,
+          report,
+          score: getScore(report),
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -162,6 +188,26 @@ const Stepper = () => {
           </Button>
         }
       />
+      {activeStep === maxSteps - 1 && (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "30%",
+            margin: "auto",
+            pt: 3,
+          }}
+        >
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
