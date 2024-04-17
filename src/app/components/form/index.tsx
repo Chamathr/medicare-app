@@ -1,21 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Box, Button, Card, TextField } from "@mui/material";
 import { useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-  },
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
 
 const FormComponent: React.FC = () => {
   const router = useRouter();
@@ -26,15 +13,13 @@ const FormComponent: React.FC = () => {
     age: "",
   });
 
-  const classes = useStyles();
-
   const handleNext = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUserData({
       report: userData?.report,
       user: { ...formData, age: parseInt(formData?.age) },
     });
-    router.push('/report')
+    router.push("/report");
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,13 +29,8 @@ const FormComponent: React.FC = () => {
 
   return (
     <>
-      <form
-        className={classes.root}
-        noValidate
-        autoComplete="off"
-        onSubmit={handleNext}
-      >
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <form noValidate autoComplete="off" onSubmit={handleNext}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 3}}>
           <TextField
             required
             id="name"
@@ -81,14 +61,11 @@ const FormComponent: React.FC = () => {
             onChange={handleChange}
           />
         </Box>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          className={classes.button}
-        >
-          Next
-        </Button>
+        <Box sx={{mt: 3, display: 'flex', justifyContent: 'center'}}>
+          <Button type="submit" variant="contained" color="primary">
+            Next
+          </Button>
+        </Box>
       </form>
     </>
   );
