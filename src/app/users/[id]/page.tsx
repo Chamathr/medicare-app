@@ -1,12 +1,12 @@
 "use client";
 import Loader from "@/app/components/loader";
-import ProfileCard from "@/app/components/userProfle/indext";
+import ProfileCard from "@/app/components/userProfle";
 import { Box } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useQuery } from "react-query";
 
 const fetchUserData = async (id: string) => {
-  const response = await fetch(`api/report/${id}`);
+  const response = await fetch(`/api/report/${id}`);
   return response.json();
 };
 
@@ -23,7 +23,7 @@ const Users = () => {
   if (error) return <Box>Error: {error.toString()}</Box>;
   return (
     <>
-      <ProfileCard userData={userData} />
+      <ProfileCard userData={userData?.data} />
     </>
   );
 };
