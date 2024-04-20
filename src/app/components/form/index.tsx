@@ -31,7 +31,17 @@ const FormComponent: React.FC = () => {
     <>
       <form noValidate autoComplete="off" onSubmit={handleNext}>
         <Box>
-          <Card sx={{ display: "flex", flexDirection: "column", gap: 3, pt: 8, pb: 8, pl: 5, pr: 5}}>
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 3,
+              pt: 8,
+              pb: 8,
+              pl: 5,
+              pr: 5,
+            }}
+          >
             <TextField
               required
               id="name"
