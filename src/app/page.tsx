@@ -1,12 +1,9 @@
-import FormComponent from "./components/form";
-
-const Form: React.FC = () => {
+const Home: React.FC = () => {
 
   return (
     <>
-      <FormComponent/>
     </>
   );
 };
 
-export default Form;
+export default Home;

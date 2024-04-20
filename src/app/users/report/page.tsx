@@ -1,4 +1,4 @@
-import Stepper from "../components/stepper";
+import Stepper from "../../components/stepper";
 
 const Report = () => {
   

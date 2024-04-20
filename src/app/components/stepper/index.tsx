@@ -14,6 +14,7 @@ import { Card } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useEffect, useState } from "react";
 import { getScore } from "@/utils/report";
+import { useRouter } from "next/navigation";
 
 const steps = [
   {
@@ -43,6 +44,8 @@ const steps = [
 ];
 
 const Stepper = () => {
+  const router = useRouter();
+
   const { userData, setUserData } = useUserDataStore();
 
   const reportData = userData?.report as IReport;
@@ -102,6 +105,11 @@ const Stepper = () => {
 
   return (
     <Box sx={{ minWidth: { xs: 300, sm: 500 }, flexGrow: 1 }}>
+      <Box>
+        <Button variant="contained" onClick={() => router.push(`/users`)}>
+          Back
+        </Button>
+      </Box>
       <Paper
         square={false}
         elevation={0}
@@ -110,6 +118,7 @@ const Stepper = () => {
           alignItems: "center",
           height: 50,
           pl: 2,
+          mt: 3,
           bgcolor: "background.default",
         }}
       >
