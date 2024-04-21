@@ -1,4 +1,4 @@
-import FormComponent from "../../components/form";
+import FormComponent from "../../../components/form";
 
 const Form: React.FC = () => {
 

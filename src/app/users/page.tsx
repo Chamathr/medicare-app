@@ -1,5 +1,5 @@
 "use client";
-import DataTable from "../components/dataTable";
+import DataTable from "../../components/dataTable";
 
 const Users = () => {
   return (

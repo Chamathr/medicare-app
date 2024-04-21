@@ -1,6 +1,6 @@
 "use client";
-import Loader from "@/app/components/loader";
-import ProfileCard from "@/app/components/userProfle";
+import Loader from "@/components/loader";
+import ProfileCard from "@/components/userProfile";
 import { Box } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useQuery } from "react-query";
