@@ -15,6 +15,8 @@ import RowRadioButtonsGroup from "../radioGroup";
 import { useEffect, useState } from "react";
 import { getScore } from "@/utils/report";
 import { useRouter } from "next/navigation";
+import { useMutation } from "react-query";
+import Loader from "../loader";
 
 const steps = [
   {
@@ -43,7 +45,32 @@ const steps = [
   },
 ];
 
+const addUserData = async (data: string) => {
+  const response = await fetch("/api/report", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: data,
+  });
+  return response.json();
+};
+
 const Stepper = () => {
+  const {
+    mutate: mutateUserData,
+    isLoading,
+    error,
+  } = useMutation(addUserData, {
+    onSuccess: () => {
+      router.push(`/users`)
+    },
+    onError: () => {
+      const err = error as Error
+      window.alert(err.message)
+    },
+  });
+
   const router = useRouter();
 
   const { userData, setUserData } = useUserDataStore();
@@ -83,21 +110,14 @@ const Stepper = () => {
         [steps[activeStep].id.toString()]: scoreData,
       };
 
-      const response = await fetch("/api/report", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: userData?.user?.name,
-          email: userData?.user?.email,
-          age: userData?.user?.age,
-          report,
-          score: getScore(report),
-        }),
+      const body = JSON.stringify({
+        name: userData?.user?.name,
+        email: userData?.user?.email,
+        age: userData?.user?.age,
+        report,
+        score: getScore(report),
       });
-      const data = await response.json();
-      console.log(data);
+      mutateUserData(body);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -105,6 +125,7 @@ const Stepper = () => {
 
   return (
     <Box sx={{ minWidth: { xs: 300, sm: 500 }, flexGrow: 1 }}>
+      {isLoading && <Loader />}
       <Box>
         <Button variant="contained" onClick={() => router.push(`/users`)}>
           Back
