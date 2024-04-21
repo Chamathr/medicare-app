@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { Table } from "antd";
 import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import Loader from "../loader";
 import { fetchUserList } from "@/helpers/users";
+import { MainButton } from "../button";
 
 const DataTable: React.FC = () => {
   const router = useRouter();
@@ -25,12 +26,11 @@ const DataTable: React.FC = () => {
       key: "actions",
       render: (record: any) => (
         <>
-          <Button
-            variant="contained"
+          <MainButton
             onClick={() => router.push(`/users/${record._id}`)}
           >
-            View Details
-          </Button>
+            Profile
+          </MainButton>
         </>
       ),
     },
@@ -39,9 +39,9 @@ const DataTable: React.FC = () => {
   return (
     <>
       <Box>
-        <Button variant="contained" onClick={() => router.push(`/users/add`)}>
+        <MainButton onClick={() => router.push(`/users/add`)}>
           Add Data
-        </Button>
+        </MainButton>
       </Box>
       <Box sx={{ mt: 3 }}>
         <Table
