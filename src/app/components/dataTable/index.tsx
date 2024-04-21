@@ -30,7 +30,7 @@ const DataTable: React.FC = () => {
       render: (record: any) => (
         <>
           <Button
-          variant="contained"
+            variant="contained"
             onClick={() => router.push(`/users/${record._id}`)}
           >
             View Details
@@ -47,7 +47,7 @@ const DataTable: React.FC = () => {
           Add Data
         </Button>
       </Box>
-      <Box sx={{mt: 3}}>
+      <Box sx={{ mt: 3 }}>
         <Table
           columns={columns}
           dataSource={dataList?.data}
