@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import styles from "./page.module.css";
 import ReactQueryWrapper from "../components/reactQueryWrapper";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,21 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header style={{ display: "flex", justifyContent: "center" }}>
-          {/* Your header content here */}
-          <h1>Medicare App</h1>
-        </header>
+        <Header/>
         <main className={styles.main}>
           <ReactQueryWrapper>
             {children}
           </ReactQueryWrapper>
         </main>
-        <footer>
-          {/* Your footer content here */}
-          <p style={{ display: "flex", justifyContent: "center" }}>
-            Copyright &copy; 2024
-          </p>
-        </footer>
+        <Footer/>
       </body>
     </html>
   );
