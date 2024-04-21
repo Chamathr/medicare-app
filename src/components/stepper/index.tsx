@@ -17,6 +17,7 @@ import { getScore } from "@/utils/report";
 import { useRouter } from "next/navigation";
 import { useMutation } from "react-query";
 import Loader from "../loader";
+import { addUserData } from "@/helpers/users";
 
 const steps = [
   {
@@ -44,17 +45,6 @@ const steps = [
     description: `Description 4`,
   },
 ];
-
-const addUserData = async (data: string) => {
-  const response = await fetch("/api/report", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: data,
-  });
-  return response.json();
-};
 
 const Stepper = () => {
   const {

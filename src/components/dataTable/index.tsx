@@ -5,16 +5,12 @@ import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
 import { Box, Button } from "@mui/material";
 import Loader from "../loader";
-
-const fetchData = async () => {
-  const response = await fetch("api/report-list");
-  return response.json();
-};
+import { fetchUserList } from "@/helpers/users";
 
 const DataTable: React.FC = () => {
   const router = useRouter();
 
-  const { data: dataList, isLoading, error } = useQuery("user-list", fetchData);
+  const { data: dataList, isLoading, error } = useQuery("user-list", fetchUserList);
 
   if (isLoading) return <Loader />;
 

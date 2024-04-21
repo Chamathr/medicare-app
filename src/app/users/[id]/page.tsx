@@ -1,14 +1,10 @@
 "use client";
 import Loader from "@/components/loader";
 import ProfileCard from "@/components/userProfile";
+import { fetchUserData } from "@/helpers/users";
 import { Box } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useQuery } from "react-query";
-
-const fetchUserData = async (id: string) => {
-  const response = await fetch(`/api/report/${id}`);
-  return response.json();
-};
 
 const Users = () => {
   const { id } = useParams<{ id: string }>();

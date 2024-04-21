@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Box, Button, Card, TextField } from "@mui/material";
 import { useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
+import { SectionCard } from "../card";
 
 const FormComponent: React.FC = () => {
   const router = useRouter();
@@ -31,7 +32,7 @@ const FormComponent: React.FC = () => {
     <>
       <form noValidate autoComplete="off" onSubmit={handleNext}>
         <Box>
-          <Card
+          <SectionCard
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -71,7 +72,7 @@ const FormComponent: React.FC = () => {
               value={formData.age}
               onChange={handleChange}
             />
-          </Card>
+          </SectionCard>
         </Box>
         <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
           <Button type="submit" variant="contained" color="primary">
