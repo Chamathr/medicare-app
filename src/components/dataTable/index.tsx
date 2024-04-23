@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { Table } from "antd";
 import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box, Button } from "@mui/material";
 import Loader from "../loader";
 import { fetchUserList } from "@/helpers/users";
-import { MainButton } from "../button";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 const DataTable: React.FC = () => {
   const router = useRouter();
@@ -31,9 +31,14 @@ const DataTable: React.FC = () => {
       key: "actions",
       render: (record: any) => (
         <>
-          <MainButton onClick={() => router.push(`/users/${record._id}`)}>
-            Profile
-          </MainButton>
+          <Button onClick={() => router.push(`/users/${record._id}`)}>
+            <Avatar
+              sx={{ bgcolor: "#00008B", zoom: 0.8}}
+              variant="rounded"
+            >
+              <AssignmentIndIcon />
+            </Avatar>
+          </Button>
         </>
       ),
     },
@@ -56,6 +61,10 @@ const DataTable: React.FC = () => {
           columns={columns}
           dataSource={dataList?.data}
           pagination={false}
+          style={{
+            border: '1px solid #00008B',
+            borderRadius: '5px'
+          }}
         />
       </Box>
     </>
