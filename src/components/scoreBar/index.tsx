@@ -19,7 +19,7 @@ const ScoreBar: React.FC = () => {
         position="static"
         sx={{ textAlign: "center", borderRadius: "10px" }}
       >
-        <Stack direction="row" spacing={2.2} p={2}>
+        <Stack direction="row" spacing={2.2} pl={2} pr={2} pt={1} pb={1}>
           <Box>0.5</Box>
           <Box>1.0</Box>
           <Box>1.5</Box>
