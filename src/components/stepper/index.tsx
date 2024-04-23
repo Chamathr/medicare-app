@@ -105,9 +105,14 @@ const Stepper = () => {
       };
 
       const body = JSON.stringify({
-        name: userData?.user?.name,
-        email: userData?.user?.email,
-        age: userData?.user?.age,
+        childName: userData?.user?.childName,
+        childDateOfBirth: userData?.user?.childDateOfBirth,
+        childGender: userData?.user?.childGender,
+        childBirthCertificate: userData?.user?.childBirthCertificate,
+        guardianName: userData?.user?.guardianName,
+        guardianAddress: userData?.user?.guardianAddress,
+        guardianEmail: userData?.user?.guardianEmail,
+        guardianPhone: userData?.user?.guardianPhone,
         report,
         score: getScore(report),
       });
@@ -161,8 +166,8 @@ const Stepper = () => {
             mt: 5,
           }}
         >
-          <Box sx={{display: 'flex', justifyContent: 'end'}}>
-            <Box sx={{ width: { sm: "50%" }}}>
+          <Box sx={{ display: "flex", justifyContent: "end" }}>
+            <Box sx={{ width: { sm: "50%" } }}>
               <ScoreBar />
             </Box>
           </Box>

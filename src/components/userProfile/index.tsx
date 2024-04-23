@@ -3,6 +3,7 @@ import { Avatar, Box, Card, Typography } from "@mui/material";
 import { SectionCard } from "../card";
 import HomeIcon from "@mui/icons-material/Home";
 import { useRouter } from "next/navigation";
+import dayjs from "dayjs"
 
 const ProfileCard = (data: any) => {
   const router = useRouter();
@@ -17,17 +18,40 @@ const ProfileCard = (data: any) => {
           <HomeIcon />
         </Avatar>
       </Box>
+
       <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mt: 3 }}>
         <SectionCard sx={{ pt: 5, pb: 5, pl: 15, pr: 15 }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             <Typography variant="h5" component="div">
-              {data?.userData?.name}
+              CHILD DETAILS
             </Typography>
             <Typography color="text.secondary" gutterBottom>
-              Age: {data?.userData?.age}
+              Name: {data?.userData?.childName}
             </Typography>
             <Typography color="text.secondary" gutterBottom>
-              Email: {data?.userData?.email}
+              Date Of Birth: {dayjs(data?.userData?.childDateOfBirth).format("DD-MM-YYYY")}
+            </Typography>
+            <Typography color="text.secondary" gutterBottom>
+              Gender: {data?.userData?.childGender}
+            </Typography>
+            <Typography color="text.secondary" gutterBottom>
+              Birth Certificate Number: {data?.userData?.childBirthCertificate}
+            </Typography>
+          </Box>
+        </SectionCard>
+        <SectionCard sx={{ pt: 5, pb: 5, pl: 15, pr: 15 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+            <Typography variant="h5" component="div">
+              GUARDIAN DETAILS
+            </Typography>
+            <Typography color="text.secondary" gutterBottom>
+              Address: {data?.userData?.guardianAddress}
+            </Typography>
+            <Typography color="text.secondary" gutterBottom>
+              Email: {data?.userData?.guardianEmail}
+            </Typography>
+            <Typography color="text.secondary" gutterBottom>
+              Contact Number: {data?.userData?.guardianPhone}
             </Typography>
             <Typography color="text.secondary" gutterBottom>
               Score: {data?.userData?.score}

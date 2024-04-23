@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { IUser, useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
@@ -9,21 +9,23 @@ import Avatar from "@mui/material/Avatar";
 import HomeIcon from "@mui/icons-material/Home";
 
 interface FormData {
-  name: string;
-  email: string;
-  age: string;
+  guardianName: string;
+  guardianAddress: string;
+  guardianEmail: string;
+  guardianPhone: string;
 }
 
-const FormComponent: React.FC = () => {
+const GuardianDataFormComponent: React.FC = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
   const userDetails = userData?.user as IUser;
 
   const defaultValues = useMemo(() => {
     return {
-      name: userDetails?.name || "",
-      email: userDetails?.email || "",
-      age: userDetails?.age?.toString() || "",
+      guardianName: userDetails?.guardianName || "",
+      guardianAddress: userDetails?.guardianAddress || "",
+      guardianEmail: userDetails?.guardianEmail || "",
+      guardianPhone: userDetails?.guardianPhone || "",
     };
   }, [userDetails]);
 
@@ -38,7 +40,13 @@ const FormComponent: React.FC = () => {
   const onSubmit = (data: FormData) => {
     setUserData({
       report: userData?.report,
-      user: { ...data, age: parseInt(data.age) },
+      user: {
+        childName: userDetails?.childName,
+        childDateOfBirth: userDetails?.childDateOfBirth,
+        childGender: userDetails?.childGender,
+        childBirthCertificate: userDetails?.childBirthCertificate,
+        ...data,
+      },
     });
     router.push("/users/report");
   };
@@ -57,6 +65,17 @@ const FormComponent: React.FC = () => {
         <SectionCard
           sx={{
             display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 50,
+            mt: 3,
+          }}
+        >
+          <Typography>Guardian Data</Typography>
+        </SectionCard>
+        <SectionCard
+          sx={{
+            display: "flex",
             flexDirection: "column",
             mt: 3,
             gap: 3,
@@ -69,78 +88,98 @@ const FormComponent: React.FC = () => {
         >
           <Box>
             <Controller
-              name="name"
+              name="guardianName"
               control={control}
               rules={{ required: "Name is required" }}
               render={({ field }) => (
                 <>
                   <TextField
                     {...field}
-                    id="name"
+                    id="guardianName"
                     label="Name"
                     variant="outlined"
-                    error={!!errors.name}
+                    error={!!errors.guardianName}
+                    size="small"
                   />
                 </>
               )}
             />
-            {errors.name && (
+            {errors.guardianName && (
               <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
-                {errors.name.message}
+                {errors.guardianName.message}
               </Box>
             )}
           </Box>
           <Box>
             <Controller
-              name="email"
+              name="guardianAddress"
               control={control}
-              rules={{
-                required: "Email is required",
-                pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email" },
-              }}
+              rules={{ required: "Address is required" }}
               render={({ field }) => (
                 <>
                   <TextField
                     {...field}
-                    id="email"
+                    id="guardianAddress"
+                    label="Address"
+                    variant="outlined"
+                    error={!!errors.guardianAddress}
+                    size="small"
+                  />
+                </>
+              )}
+            />
+            {errors.guardianAddress && (
+              <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
+                {errors.guardianAddress.message}
+              </Box>
+            )}
+          </Box>
+          <Box>
+            <Controller
+              name="guardianEmail"
+              control={control}
+              rules={{ required: "Email is required" }}
+              render={({ field }) => (
+                <>
+                  <TextField
+                    {...field}
+                    id="guardianAddress"
                     label="Email"
                     variant="outlined"
+                    error={!!errors.guardianEmail}
+                    size="small"
                     type="email"
-                    error={!!errors.email}
                   />
                 </>
               )}
             />
-            {errors.email && (
+            {errors.guardianEmail && (
               <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
-                {errors.email.message}
+                {errors.guardianEmail.message}
               </Box>
             )}
           </Box>
           <Box>
             <Controller
-              name="age"
+              name="guardianPhone"
               control={control}
-              rules={{
-                required: "Age is required",
-                pattern: { value: /^\d+$/, message: "Age must be a number" },
-              }}
+              rules={{ required: "Contact number is required" }}
               render={({ field }) => (
                 <>
                   <TextField
                     {...field}
-                    id="age"
-                    label="Age"
+                    id="guardianPhone"
+                    label="Contact Number"
                     variant="outlined"
-                    type="number"
-                    error={!!errors.age}
+                    error={!!errors.guardianPhone}
+                    size="small"
                   />
                 </>
               )}
             />
-            {errors.age && (
+            {errors.guardianPhone && (
               <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
-                {errors.age.message}
+                {errors.guardianPhone.message}
               </Box>
             )}
           </Box>
@@ -159,4 +198,4 @@ const FormComponent: React.FC = () => {
   );
 };
 
-export default FormComponent;
+export default GuardianDataFormComponent;

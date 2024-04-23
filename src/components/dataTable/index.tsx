@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { Table } from "antd";
 import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
@@ -8,6 +7,7 @@ import Loader from "../loader";
 import { fetchUserList } from "@/helpers/users";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import dayjs from "dayjs";
 
 const DataTable: React.FC = () => {
   const router = useRouter();
@@ -23,9 +23,14 @@ const DataTable: React.FC = () => {
   if (error) return <Box>Error: {error.toString()}</Box>;
 
   const columns = [
-    { title: "Name", dataIndex: "name", key: "name" },
-    { title: "Age", dataIndex: "age", key: "age" },
-    { title: "Email", dataIndex: "email", key: "email" },
+    { title: "Name", dataIndex: "childName", key: "childName" },
+    { title: "Gender", dataIndex: "childGender", key: "childGender" },
+    { 
+      title: "Date Of Birth",
+      dataIndex: "childDateOfBirth",
+      key: "childDateOfBirth",
+      render: (dateOfBirth: string) => dayjs(dateOfBirth).format("DD-MM-YYYY")
+    },
     {
       title: "Actions",
       key: "actions",
@@ -49,7 +54,7 @@ const DataTable: React.FC = () => {
       <Box>
         <Box
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
-          onClick={() => router.push("/users/add")}
+          onClick={() => router.push("/users/add/child")}
         >
           <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
             <CreateNewFolderIcon />

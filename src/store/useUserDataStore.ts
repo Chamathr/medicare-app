@@ -16,9 +16,14 @@ export interface IReport {
 }
 
 export interface IUser {
-  name: string;
-  email: string;
-  age: number;
+  childName: string;
+  childDateOfBirth: string;
+  childGender: string;
+  childBirthCertificate: string;
+  guardianName?: string;
+  guardianAddress?: string;
+  guardianEmail?: string;
+  guardianPhone?: string;
 }
 
 interface Store {

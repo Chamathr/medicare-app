@@ -2,7 +2,7 @@ import Report, { IReport } from "../models/report.model";
 
 const getReportList = async () => {
   try {
-    const report = await Report.find({})
+    const report = await Report.find({});
     return report;
   } catch (error) {
     throw error;
@@ -16,12 +16,12 @@ const getReportList = async () => {
  */
 const createReport = async (data: IReport) => {
   try {
-    const { name, age, email, report, score } = data;
-    const existingUser = await Report.findOne({ email });
+    const { guardianEmail } = data;
+    const existingUser = await Report.findOne({ email: guardianEmail });
     if (existingUser) {
       throw new Error("User is already exists");
     }
-    const reportData = new Report({ name, age, email, report, score });
+    const reportData = new Report(data);
     await reportData.save();
     return reportData;
   } catch (error) {

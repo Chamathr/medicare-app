@@ -19,7 +19,7 @@ const Header: React.FC = () => {
       <AppBar position="static" sx={{ textAlign: "center" }}>
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            MEDICARE APP
+            C-ME
           </Typography>
         </Toolbar>
       </AppBar>
