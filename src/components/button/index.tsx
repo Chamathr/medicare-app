@@ -1,4 +1,4 @@
-import { Button, Card, createTheme, useTheme } from "@mui/material";
+import { Button } from "@mui/material";
 import type { SxProps } from "@mui/material";
 import React from "react";
 import type { ReactElement } from "react";
@@ -6,23 +6,25 @@ import type { ReactElement } from "react";
 interface CardProps {
   children: React.ReactNode;
   sx?: SxProps;
-  onClick: () => void;
+  type?: string;
+  variant?: "text" | "outlined" | "contained" | undefined;
+  onClick?: () => void;
 }
 
 export const MainButton = ({
   children,
   sx,
+  type,
+  variant = "contained",
   ...props
 }: CardProps): ReactElement => {
-  const theme = useTheme();
-
   return (
     <Button
-      variant="contained"
+      variant={variant}
       {...props}
       sx={{
         ...sx,
-        background: "#00008B"
+        background: "#00008B",
       }}
     >
       {children}

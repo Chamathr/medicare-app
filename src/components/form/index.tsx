@@ -39,8 +39,9 @@ const FormComponent: React.FC = () => {
             gap: 3,
             pt: 8,
             pb: 8,
-            pl: 5,
-            pr: 5,
+            pl: 8,
+            pr: 8,
+            border: '1px solid #00008B'
           }}
         >
           <Box>
@@ -123,7 +124,11 @@ const FormComponent: React.FC = () => {
         </SectionCard>
       </Box>
       <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ background: "#00008B" }}
+        >
           Next
         </Button>
       </Box>
