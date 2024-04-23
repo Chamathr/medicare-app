@@ -1,86 +1,133 @@
 "use client";
-import React, { useState } from "react";
-import { Box, Button, Card, TextField } from "@mui/material";
+import React from "react";
+import { Box, Button, TextField } from "@mui/material";
+import { useForm, Controller } from "react-hook-form";
 import { useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
 import { SectionCard } from "../card";
 
+interface FormData {
+  name: string;
+  email: string;
+  age: string;
+}
+
 const FormComponent: React.FC = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    age: "",
-  });
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FormData>();
 
-  const handleNext = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const onSubmit = (data: FormData) => {
     setUserData({
       report: userData?.report,
-      user: { ...formData, age: parseInt(formData?.age) },
+      user: { ...data, age: parseInt(data.age) },
     });
     router.push("/users/report");
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   return (
-    <>
-      <form noValidate autoComplete="off" onSubmit={handleNext}>
-        <Box>
-          <SectionCard
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 3,
-              pt: 8,
-              pb: 8,
-              pl: 5,
-              pr: 5,
-            }}
-          >
-            <TextField
-              required
-              id="name"
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Box>
+        <SectionCard
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 3,
+            pt: 8,
+            pb: 8,
+            pl: 5,
+            pr: 5,
+          }}
+        >
+          <Box>
+            <Controller
               name="name"
-              label="Name"
-              variant="outlined"
-              value={formData.name}
-              onChange={handleChange}
+              control={control}
+              rules={{ required: "Name is required" }}
+              render={({ field }) => (
+                <>
+                  <TextField
+                    {...field}
+                    id="name"
+                    label="Name"
+                    variant="outlined"
+                    error={!!errors.name}
+                  />
+                </>
+              )}
             />
-            <TextField
-              required
-              id="email"
+            {errors.name && (
+              <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
+                {errors.name.message}
+              </Box>
+            )}
+          </Box>
+          <Box>
+            <Controller
               name="email"
-              label="Email"
-              variant="outlined"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
+              control={control}
+              rules={{
+                required: "Email is required",
+                pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email" },
+              }}
+              render={({ field }) => (
+                <>
+                  <TextField
+                    {...field}
+                    id="email"
+                    label="Email"
+                    variant="outlined"
+                    type="email"
+                    error={!!errors.email}
+                  />
+                </>
+              )}
             />
-            <TextField
-              required
-              id="age"
+            {errors.email && (
+              <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
+                {errors.email.message}
+              </Box>
+            )}
+          </Box>
+          <Box>
+            <Controller
               name="age"
-              label="Age"
-              variant="outlined"
-              type="number"
-              value={formData.age}
-              onChange={handleChange}
+              control={control}
+              rules={{
+                required: "Age is required",
+                pattern: { value: /^\d+$/, message: "Age must be a number" },
+              }}
+              render={({ field }) => (
+                <>
+                  <TextField
+                    {...field}
+                    id="age"
+                    label="Age"
+                    variant="outlined"
+                    type="number"
+                    error={!!errors.age}
+                  />
+                </>
+              )}
             />
-          </SectionCard>
-        </Box>
-        <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
-          <Button type="submit" variant="contained" color="primary">
-            Next
-          </Button>
-        </Box>
-      </form>
-    </>
+            {errors.age && (
+              <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
+                {errors.age.message}
+              </Box>
+            )}
+          </Box>
+        </SectionCard>
+      </Box>
+      <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
+        <Button type="submit" variant="contained" color="primary">
+          Next
+        </Button>
+      </Box>
+    </form>
   );
 };
 
