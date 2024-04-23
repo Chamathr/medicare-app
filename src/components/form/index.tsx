@@ -64,7 +64,6 @@ const FormComponent: React.FC = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #00008B",
           }}
         >
           <Box>

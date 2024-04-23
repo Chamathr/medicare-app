@@ -13,8 +13,6 @@ export const SectionCard = ({
   sx,
   ...props
 }: CardProps): ReactElement => {
-  const theme = useTheme();
-
   return (
     <Card
       {...props}
@@ -23,6 +21,8 @@ export const SectionCard = ({
         borderRadius: "6px",
         bgcolor: "rgba(255, 255, 255, 0.5)",
         boxShadow: "none",
+        border: "1px solid #00008B",
+        color: '#00008B',
         ...sx,
       }}
     >
