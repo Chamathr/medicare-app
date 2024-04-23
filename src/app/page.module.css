@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
   min-height: 100vh;
   background-color: #ADD8E6;
 }

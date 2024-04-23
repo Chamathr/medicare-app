@@ -5,11 +5,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-// Define a custom theme with blue color
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00008B", // Blue color
+      main: "#00008B",
     },
   },
 });
@@ -22,7 +21,6 @@ const Header: React.FC = () => {
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             MEDICARE APP
           </Typography>
-          {/* Add other header components or icons here */}
         </Toolbar>
       </AppBar>
     </ThemeProvider>

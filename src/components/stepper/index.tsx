@@ -21,6 +21,7 @@ import { addUserData } from "@/helpers/users";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
 import { SectionCard } from "../card";
+import ScoreBar from "../scoreBar";
 
 const steps = [
   {
@@ -157,10 +158,14 @@ const Stepper = () => {
             minWidth: { xs: 300, sm: 500 },
             width: "100%",
             p: 4,
-            marginTop: "auto",
-            mb: 5,
+            mt: 5,
           }}
         >
+          <Box sx={{display: 'flex', justifyContent: 'end'}}>
+            <Box sx={{ width: { sm: "50%" }}}>
+              <ScoreBar />
+            </Box>
+          </Box>
           {steps[activeStep].factors?.map((item, key) => {
             return (
               <>
@@ -216,7 +221,15 @@ const Stepper = () => {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button
+            size="small"
+            onClick={handleBack}
+            sx={{
+              color: "#00008B",
+              fontWeight: 700,
+            }}
+            disabled={activeStep === 0}
+          >
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
