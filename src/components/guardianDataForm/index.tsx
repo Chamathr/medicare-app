@@ -6,7 +6,7 @@ import { IUser, useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
 import { SectionCard } from "../card";
 import Avatar from "@mui/material/Avatar";
-import HomeIcon from "@mui/icons-material/Home";
+import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
 interface FormData {
   guardianName: string;
@@ -56,10 +56,10 @@ const GuardianDataFormComponent: React.FC = () => {
       <Box>
         <Box
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
-          onClick={() => router.push("/users")}
+          onClick={() => router.push("/users/add/child")}
         >
           <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
-            <HomeIcon />
+            <ReplyAllIcon />
           </Avatar>
         </Box>
         <SectionCard
@@ -71,7 +71,7 @@ const GuardianDataFormComponent: React.FC = () => {
             mt: 3,
           }}
         >
-          <Typography>Guardian Data</Typography>
+          <Typography textTransform="uppercase" variant="h6">Guardian Data</Typography>
         </SectionCard>
         <SectionCard
           sx={{

@@ -15,12 +15,12 @@ import { IUser, useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
 import { SectionCard } from "../card";
 import Avatar from "@mui/material/Avatar";
-import HomeIcon from "@mui/icons-material/Home";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
 interface FormData {
   childName: string;
@@ -71,7 +71,7 @@ const ChildDataFormComponent: React.FC = () => {
           onClick={() => router.push("/users")}
         >
           <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
-            <HomeIcon />
+            <ReplyAllIcon />
           </Avatar>
         </Box>
         <SectionCard
@@ -83,7 +83,9 @@ const ChildDataFormComponent: React.FC = () => {
             mt: 3,
           }}
         >
-          <Typography>Child Data</Typography>
+          <Typography textTransform="uppercase" variant="h6">
+            Child Data
+          </Typography>
         </SectionCard>
         <SectionCard
           sx={{

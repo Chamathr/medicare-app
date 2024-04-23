@@ -1,10 +1,8 @@
 "use client";
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
@@ -12,7 +10,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { IReport, IUser, useUserDataStore } from "@/store";
 import { Avatar, Card } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getScore } from "@/utils/report";
 import { useRouter } from "next/navigation";
 import { useMutation } from "react-query";
@@ -132,7 +130,7 @@ const Stepper = () => {
             display: "flex",
             justifyContent: "center",
           }}
-          onClick={() => router.push("/users/add")}
+          onClick={() => router.push("/users/add/guardian")}
         >
           <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
             <ReplyAllIcon />
