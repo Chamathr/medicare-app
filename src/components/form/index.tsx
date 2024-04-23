@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
-import { useUserDataStore } from "@/store";
+import { IUser, useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
 import { SectionCard } from "../card";
 import Avatar from "@mui/material/Avatar";
@@ -17,11 +17,23 @@ interface FormData {
 const FormComponent: React.FC = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
+  const userDetails = userData?.user as IUser;
+
+  const defaultValues = useMemo(() => {
+    return {
+      name: userDetails?.name || "",
+      email: userDetails?.email || "",
+      age: userDetails?.age?.toString() || "",
+    };
+  }, [userDetails]);
+
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues,
+  });
 
   const onSubmit = (data: FormData) => {
     setUserData({
@@ -35,7 +47,7 @@ const FormComponent: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <Box
-          sx={{ alignItems: "center", cursor: 'pointer', display: "flex", justifyContent: "center" }}
+          sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users")}
         >
           <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">

@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { IReport, IUser, useUserDataStore } from "@/store";
-import { Card } from "@mui/material";
+import { Avatar, Card } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useEffect, useState } from "react";
 import { getScore } from "@/utils/report";
@@ -18,6 +18,8 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "react-query";
 import Loader from "../loader";
 import { addUserData } from "@/helpers/users";
+import ReplyAllIcon from '@mui/icons-material/ReplyAll';
+import { MainButton } from "../button";
 
 const steps = [
   {
@@ -53,11 +55,11 @@ const Stepper = () => {
     error,
   } = useMutation(addUserData, {
     onSuccess: () => {
-      router.push(`/users`)
+      router.push(`/users`);
     },
     onError: () => {
-      const err = error as Error
-      window.alert(err.message)
+      const err = error as Error;
+      window.alert(err.message);
     },
   });
 
@@ -117,9 +119,18 @@ const Stepper = () => {
     <Box sx={{ minWidth: { xs: 300, sm: 500 }, flexGrow: 1 }}>
       {isLoading && <Loader />}
       <Box>
-        <Button variant="contained" onClick={() => router.push(`/users`)}>
-          Back
-        </Button>
+        <Box
+          sx={{
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+          }}
+          onClick={() => router.push("/users/add")}
+        >
+          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+            <ReplyAllIcon />
+          </Avatar>
+        </Box>
       </Box>
       <Paper
         square={false}
@@ -218,14 +229,13 @@ const Stepper = () => {
             pt: 3,
           }}
         >
-          <Button
+          <MainButton
             type="submit"
             variant="contained"
-            color="primary"
             onClick={handleSubmit}
           >
             Submit
-          </Button>
+          </MainButton>
         </Box>
       )}
     </Box>
