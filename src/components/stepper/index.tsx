@@ -18,8 +18,9 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "react-query";
 import Loader from "../loader";
 import { addUserData } from "@/helpers/users";
-import ReplyAllIcon from '@mui/icons-material/ReplyAll';
+import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
+import { SectionCard } from "../card";
 
 const steps = [
   {
@@ -132,20 +133,17 @@ const Stepper = () => {
           </Avatar>
         </Box>
       </Box>
-      <Paper
-        square={false}
-        elevation={0}
+      <SectionCard
         sx={{
           display: "flex",
           alignItems: "center",
           height: 50,
           pl: 2,
           mt: 3,
-          bgcolor: "background.default",
         }}
       >
         <Typography>{steps[activeStep].label}</Typography>
-      </Paper>
+      </SectionCard>
       <Box
         sx={{
           minHeight: 500,
@@ -154,10 +152,7 @@ const Stepper = () => {
           height: "100%",
         }}
       >
-        <Box sx={{ minWidth: { xs: 300, sm: 500 }, width: "100%", p: 2 }}>
-          {steps[activeStep].description}
-        </Box>
-        <Card
+        <SectionCard
           sx={{
             minWidth: { xs: 300, sm: 500 },
             width: "100%",
@@ -187,9 +182,17 @@ const Stepper = () => {
               </>
             );
           })}
-        </Card>
+        </SectionCard>
       </Box>
       <MobileStepper
+        sx={{
+          width: "100%",
+          borderRadius: "5px",
+          bgcolor: "rgba(255, 255, 255, 0.5)",
+          boxShadow: "none",
+          border: "1px solid #00008B",
+          color: "#00008B",
+        }}
         variant="text"
         steps={maxSteps}
         position="static"
@@ -198,6 +201,10 @@ const Stepper = () => {
           <Button
             size="small"
             onClick={handleNext}
+            sx={{
+              color: "#00008B",
+              fontWeight: 700,
+            }}
             disabled={activeStep === maxSteps - 1}
           >
             Next
@@ -229,11 +236,7 @@ const Stepper = () => {
             pt: 3,
           }}
         >
-          <MainButton
-            type="submit"
-            variant="contained"
-            onClick={handleSubmit}
-          >
+          <MainButton type="submit" variant="contained" onClick={handleSubmit}>
             Submit
           </MainButton>
         </Box>

@@ -18,7 +18,7 @@ export const SectionCard = ({
       {...props}
       sx={{
         width: "100%",
-        borderRadius: "6px",
+        borderRadius: "5px",
         bgcolor: "rgba(255, 255, 255, 0.5)",
         boxShadow: "none",
         border: "1px solid #00008B",
