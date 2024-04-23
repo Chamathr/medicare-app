@@ -5,6 +5,8 @@ import { useForm, Controller } from "react-hook-form";
 import { useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
 import { SectionCard } from "../card";
+import Avatar from "@mui/material/Avatar";
+import HomeIcon from "@mui/icons-material/Home";
 
 interface FormData {
   name: string;
@@ -32,16 +34,25 @@ const FormComponent: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
+        <Box
+          sx={{ alignItems: "center", cursor: 'pointer', display: "flex", justifyContent: "center" }}
+          onClick={() => router.push("/users")}
+        >
+          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+            <HomeIcon />
+          </Avatar>
+        </Box>
         <SectionCard
           sx={{
             display: "flex",
             flexDirection: "column",
+            mt: 3,
             gap: 3,
             pt: 8,
             pb: 8,
             pl: 8,
             pr: 8,
-            border: '1px solid #00008B'
+            border: "1px solid #00008B",
           }}
         >
           <Box>
