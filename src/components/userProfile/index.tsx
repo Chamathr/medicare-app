@@ -1,9 +1,9 @@
 import React from "react";
-import { Avatar, Box, Card, Typography } from "@mui/material";
+import { Avatar, Box, Card, Grid, Typography } from "@mui/material";
 import { SectionCard } from "../card";
 import HomeIcon from "@mui/icons-material/Home";
 import { useRouter } from "next/navigation";
-import dayjs from "dayjs"
+import dayjs from "dayjs";
 
 const ProfileCard = (data: any) => {
   const router = useRouter();
@@ -19,44 +19,96 @@ const ProfileCard = (data: any) => {
         </Avatar>
       </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mt: 3 }}>
-        <SectionCard sx={{ pt: 5, pb: 5, pl: 15, pr: 15 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            <Typography variant="h5" component="div">
-              CHILD DETAILS
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Name: {data?.userData?.childName}
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Date Of Birth: {dayjs(data?.userData?.childDateOfBirth).format("DD-MM-YYYY")}
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Gender: {data?.userData?.childGender}
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Birth Certificate Number: {data?.userData?.childBirthCertificate}
-            </Typography>
-          </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 3,
+          mt: 3,
+          minWidth: { xs: 300, sm: 400 },
+        }}
+      >
+        <SectionCard sx={{ pt: 5, pb: 5, pl: 5, pr: 5 }}>
+          <Grid>
+            <Box display="flex" justifyContent="center" mb={3}>
+              <Typography variant="h5" component="div">
+                CHILD DETAILS
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Name
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.childName}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Date Of Birth
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {dayjs(data?.userData?.childDateOfBirth).format("DD-MM-YYYY")}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Gender
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.childGender}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Birth Certificate Number
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.childBirthCertificate}
+              </Typography>
+            </Box>
+          </Grid>
         </SectionCard>
-        <SectionCard sx={{ pt: 5, pb: 5, pl: 15, pr: 15 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            <Typography variant="h5" component="div">
-              GUARDIAN DETAILS
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Address: {data?.userData?.guardianAddress}
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Email: {data?.userData?.guardianEmail}
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Contact Number: {data?.userData?.guardianPhone}
-            </Typography>
-            <Typography color="text.secondary" gutterBottom>
-              Score: {data?.userData?.score}
-            </Typography>
-          </Box>
+        <SectionCard sx={{ pt: 5, pb: 5, pl: 5, pr: 5 }}>
+          <Grid>
+            <Box display="flex" justifyContent="center" mb={3}>
+              <Typography variant="h5" component="div">
+                GUARDIAN DETAILS
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Name
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.guardianName}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Address
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.guardianAddress}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Email
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.guardianEmail}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Contact Number
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.guardianPhone}
+              </Typography>
+            </Box>
+          </Grid>
         </SectionCard>
       </Box>
     </>
