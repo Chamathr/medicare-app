@@ -126,7 +126,7 @@ const ProfileCard = (data: any) => {
                 gutterBottom
                 textTransform={"uppercase"}
               >
-                {data?.userData?.riskFactors?.prematureBirth.toString()}
+                {data?.userData?.riskFactors?.prematureBirth ? 'YES' : 'NO'}
               </Typography>
             </Box>
             <Box display="flex" justifyContent="space-between">
@@ -138,7 +138,7 @@ const ProfileCard = (data: any) => {
                 gutterBottom
                 textTransform={"uppercase"}
               >
-                {data?.userData?.riskFactors?.lowBirthWeight.toString()}
+                {data?.userData?.riskFactors?.lowBirthWeight ? 'YES' : 'NO'}
               </Typography>
             </Box>
             <Box display="flex" justifyContent="space-between">
@@ -150,7 +150,7 @@ const ProfileCard = (data: any) => {
                 gutterBottom
                 textTransform={"uppercase"}
               >
-                {data?.userData?.riskFactors?.neonatalICUStay.toString()}
+                {data?.userData?.riskFactors?.neonatalICUStay ? 'YES' : 'NO'}
               </Typography>
             </Box>
             <Box display="flex" justifyContent="space-between">
@@ -162,7 +162,7 @@ const ProfileCard = (data: any) => {
                 gutterBottom
                 textTransform={"uppercase"}
               >
-                {data?.userData?.riskFactors?.historyOfSeizures.toString()}
+                {data?.userData?.riskFactors?.historyOfSeizures ? 'YES' : 'NO'}
               </Typography>
             </Box>
             <Box display="flex" justifyContent="space-between">
