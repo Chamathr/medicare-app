@@ -35,7 +35,7 @@ const ChildDataFormComponent = () => {
   const userDetails = userData?.user as IUser;
 
   const [date, setDate] = useState<Dayjs | null>(
-    dayjs(userDetails?.childDateOfBirth) ?? dayjs("2024-01-01")
+    userDetails?.childDateOfBirth ? dayjs(userDetails?.childDateOfBirth) : null
   );
 
   const defaultValues = useMemo(() => {
@@ -65,7 +65,7 @@ const ChildDataFormComponent = () => {
         childDateOfBirth: date?.toString() ?? "",
       },
       score: userData?.score,
-      severityLevel: userData?.severityLevel
+      severityLevel: userData?.severityLevel,
     });
     router.push("/users/add/guardian");
   };
