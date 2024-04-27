@@ -25,7 +25,7 @@ const ProfileCard = (data: any) => {
           flexDirection: "column",
           gap: 3,
           mt: 3,
-          minWidth: { xs: 300, sm: 400 },
+          width: { xs: 300, sm: 400 },
         }}
       >
         <SectionCard sx={{ pt: 5, pb: 5, pl: 5, pr: 5 }}>
@@ -106,6 +106,79 @@ const ProfileCard = (data: any) => {
               </Typography>
               <Typography color="text.secondary" gutterBottom>
                 {data?.userData?.guardianPhone}
+              </Typography>
+            </Box>
+          </Grid>
+        </SectionCard>
+        <SectionCard sx={{ pt: 5, pb: 5, pl: 5, pr: 5 }}>
+          <Grid>
+            <Box display="flex" justifyContent="center" mb={3}>
+              <Typography variant="h5" component="div">
+                RISK FACTOR DETAILS
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Premature Birth
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+              >
+                {data?.userData?.riskFactors?.prematureBirth.toString()}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Low Birth Weight
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+              >
+                {data?.userData?.riskFactors?.lowBirthWeight.toString()}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Neonatal ICU Stay
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+              >
+                {data?.userData?.riskFactors?.neonatalICUStay.toString()}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                History Of Seizures
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+              >
+                {data?.userData?.riskFactors?.historyOfSeizures.toString()}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Neurological Conditions
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.riskFactors?.neurologicalConditions}
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography color="text.secondary" gutterBottom>
+                Neurological Conditions Of Family
+              </Typography>
+              <Typography color="text.secondary" gutterBottom>
+                {data?.userData?.riskFactors?.neurologicalConditionsFamily}
               </Typography>
             </Box>
           </Grid>
