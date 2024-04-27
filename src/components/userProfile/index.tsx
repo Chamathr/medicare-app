@@ -35,35 +35,88 @@ const ProfileCard = (data: any) => {
                 CHILD DETAILS
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Name
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
                 {data?.userData?.childName}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Date Of Birth
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
                 {dayjs(data?.userData?.childDateOfBirth).format("DD-MM-YYYY")}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Gender
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
                 {data?.userData?.childGender}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              display="flex"
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Birth Certificate Number
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
                 {data?.userData?.childBirthCertificate}
               </Typography>
             </Box>
@@ -111,13 +164,18 @@ const ProfileCard = (data: any) => {
           </Grid>
         </SectionCard>
         <SectionCard sx={{ pt: 5, pb: 5, pl: 5, pr: 5 }}>
-          <Grid>
+          <Grid width={"100%"}>
             <Box display="flex" justifyContent="center" mb={3}>
               <Typography variant="h5" component="div">
                 RISK FACTOR DETAILS
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Premature Birth
               </Typography>
@@ -125,11 +183,21 @@ const ProfileCard = (data: any) => {
                 color="text.secondary"
                 gutterBottom
                 textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
               >
-                {data?.userData?.riskFactors?.prematureBirth ? 'YES' : 'NO'}
+                {data?.userData?.riskFactors?.prematureBirth ? "YES" : "NO"}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Low Birth Weight
               </Typography>
@@ -137,11 +205,21 @@ const ProfileCard = (data: any) => {
                 color="text.secondary"
                 gutterBottom
                 textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
               >
-                {data?.userData?.riskFactors?.lowBirthWeight ? 'YES' : 'NO'}
+                {data?.userData?.riskFactors?.lowBirthWeight ? "YES" : "NO"}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Neonatal ICU Stay
               </Typography>
@@ -149,11 +227,21 @@ const ProfileCard = (data: any) => {
                 color="text.secondary"
                 gutterBottom
                 textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
               >
-                {data?.userData?.riskFactors?.neonatalICUStay ? 'YES' : 'NO'}
+                {data?.userData?.riskFactors?.neonatalICUStay ? "YES" : "NO"}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 History Of Seizures
               </Typography>
@@ -161,23 +249,54 @@ const ProfileCard = (data: any) => {
                 color="text.secondary"
                 gutterBottom
                 textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
               >
-                {data?.userData?.riskFactors?.historyOfSeizures ? 'YES' : 'NO'}
+                {data?.userData?.riskFactors?.historyOfSeizures ? "YES" : "NO"}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Neurological Conditions
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
                 {data?.userData?.riskFactors?.neurologicalConditions}
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Neurological Conditions Of Family
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
                 {data?.userData?.riskFactors?.neurologicalConditionsFamily}
               </Typography>
             </Box>
@@ -197,18 +316,18 @@ const ProfileCard = (data: any) => {
           </Typography>
         </SectionCard>
         <SectionCard
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: 50,
-              mt: 3,
-            }}
-          >
-            <Typography textTransform="uppercase" variant="h6">
-              {data?.userData?.severityLevel}
-            </Typography>
-          </SectionCard>
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 50,
+            mt: 3,
+          }}
+        >
+          <Typography textTransform="uppercase" variant="h6">
+            {data?.userData?.severityLevel}
+          </Typography>
+        </SectionCard>
       </Box>
     </>
   );
