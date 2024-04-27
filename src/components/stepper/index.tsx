@@ -119,7 +119,7 @@ const Stepper = () => {
           }}
           onClick={() => router.push("/users/add/risk-factors")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -186,8 +186,8 @@ const Stepper = () => {
           borderRadius: "5px",
           bgcolor: "rgba(255, 255, 255, 0.5)",
           boxShadow: "none",
-          border: "1px solid #00008B",
-          color: "#00008B",
+          border: "1px solid #fc7703",
+          color: "#fc7703",
         }}
         variant="text"
         steps={maxSteps}
@@ -198,7 +198,7 @@ const Stepper = () => {
             size="small"
             onClick={handleNext}
             sx={{
-              color: "#00008B",
+              color: "#fc7703",
               fontWeight: 700,
             }}
             disabled={activeStep === maxSteps - 1}
@@ -216,7 +216,7 @@ const Stepper = () => {
             size="small"
             onClick={handleBack}
             sx={{
-              color: "#00008B",
+              color: "#fc7703",
               fontWeight: 700,
             }}
             disabled={activeStep === 0}

@@ -14,7 +14,7 @@ const ProfileCard = (data: any) => {
         sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
         onClick={() => router.push("/users")}
       >
-        <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+        <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
           <HomeIcon />
         </Avatar>
       </Box>

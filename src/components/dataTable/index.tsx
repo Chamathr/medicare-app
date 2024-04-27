@@ -38,7 +38,7 @@ const DataTable: React.FC = () => {
         <>
           <Button onClick={() => router.push(`/users/${record._id}`)}>
             <Avatar
-              sx={{ bgcolor: "#00008B", zoom: 0.8}}
+              sx={{ bgcolor: "#fc7703", zoom: 0.8}}
               variant="rounded"
             >
               <AssignmentIndIcon />
@@ -56,7 +56,7 @@ const DataTable: React.FC = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/add/child")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <CreateNewFolderIcon />
           </Avatar>
         </Box>
@@ -67,7 +67,7 @@ const DataTable: React.FC = () => {
           dataSource={dataList?.data}
           pagination={false}
           style={{
-            border: '1px solid #00008B',
+            border: '1px solid #fc7703',
             borderRadius: '5px'
           }}
         />

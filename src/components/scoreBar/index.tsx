@@ -7,7 +7,7 @@ import { Box, Stack } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00008B",
+      main: "#fc7703",
     },
   },
 });

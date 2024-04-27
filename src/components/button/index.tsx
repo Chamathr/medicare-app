@@ -24,7 +24,7 @@ export const MainButton = ({
       {...props}
       sx={{
         ...sx,
-        background: "#00008B",
+        background: "#fc7703",
       }}
     >
       {children}

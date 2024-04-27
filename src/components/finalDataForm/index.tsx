@@ -103,7 +103,7 @@ const FinalDataFormComponent = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/report")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -145,7 +145,7 @@ const FinalDataFormComponent = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #00008B",
+            border: "1px solid #fc7703",
           }}
         >
           <Box>
@@ -177,7 +177,7 @@ const FinalDataFormComponent = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#00008B" }}
+          sx={{ background: "#fc7703" }}
         >
           SUBMIT
         </Button>
