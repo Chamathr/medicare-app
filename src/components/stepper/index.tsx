@@ -128,6 +128,7 @@ const Stepper = () => {
         sx={{
           display: "flex",
           alignItems: "center",
+          justifyContent: 'center',
           height: 50,
           pl: 2,
           mt: 3,

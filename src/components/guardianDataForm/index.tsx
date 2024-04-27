@@ -99,7 +99,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianName"
-                    label="Name"
+                    label="Name*"
                     variant="outlined"
                     error={!!errors.guardianName}
                     size="small"
@@ -123,7 +123,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianAddress"
-                    label="Address"
+                    label="Address*"
                     variant="outlined"
                     error={!!errors.guardianAddress}
                     size="small"
@@ -147,7 +147,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianAddress"
-                    label="Email"
+                    label="Email*"
                     variant="outlined"
                     error={!!errors.guardianEmail}
                     size="small"
@@ -172,7 +172,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianPhone"
-                    label="Contact Number"
+                    label="Contact Number*"
                     variant="outlined"
                     error={!!errors.guardianPhone}
                     size="small"

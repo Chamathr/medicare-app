@@ -9,13 +9,15 @@ interface Props {
   radioValue: string | undefined;
   label: string;
   handleSelect: (data: string) => void;
-  userData: IUserData | undefined
+  userData: IUserData | undefined;
 }
 
 const RowRadioButtonsGroup = (Props: Props) => {
   const { label, handleSelect, radioValue, userData } = Props;
 
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(radioValue ?? "0");
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    radioValue ?? "0"
+  );
 
   useEffect(() => {
     setSelectedValue(radioValue || "0");
@@ -50,14 +52,42 @@ const RowRadioButtonsGroup = (Props: Props) => {
             {...controlProps("1")}
             sx={{
               "&.Mui-checked": {
-                color: pink[600],
+                color: "#fc7703",
               },
             }}
           />
-          <Radio {...controlProps("2")} color="default" />
-          <Radio {...controlProps("3")} color="success" />
-          <Radio {...controlProps("4")} color="secondary" />
-          <Radio {...controlProps("5")} />
+          <Radio
+            {...controlProps("2")}
+            sx={{
+              "&.Mui-checked": {
+                color: "#fc7703",
+              },
+            }}
+          />
+          <Radio
+            {...controlProps("3")}
+            sx={{
+              "&.Mui-checked": {
+                color: "#fc7703",
+              },
+            }}
+          />
+          <Radio
+            {...controlProps("4")}
+            sx={{
+              "&.Mui-checked": {
+                color: "#fc7703",
+              },
+            }}
+          />
+          <Radio
+            {...controlProps("5")}
+            sx={{
+              "&.Mui-checked": {
+                color: "#fc7703",
+              },
+            }}
+          />
         </Box>
       </Box>
     </>

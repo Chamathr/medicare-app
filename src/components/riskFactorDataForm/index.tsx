@@ -58,7 +58,7 @@ const RiskFactorDataFormComponent = () => {
       user: userData?.user,
       riskFactors: data,
       score: userData?.score,
-      severityLevel: userData?.severityLevel
+      severityLevel: userData?.severityLevel,
     });
     router.push("/users/report");
   };
@@ -104,7 +104,7 @@ const RiskFactorDataFormComponent = () => {
             <FormControl component="fieldset">
               <FormLabel component="legend">Premature birth?</FormLabel>
               <Controller
-              defaultValue={undefined}
+                defaultValue={undefined}
                 name="prematureBirth"
                 control={control}
                 render={({ field }) => (
@@ -114,12 +114,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -140,12 +156,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -166,12 +198,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -192,12 +240,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>

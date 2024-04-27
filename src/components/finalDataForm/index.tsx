@@ -157,7 +157,7 @@ const FinalDataFormComponent = () => {
                   <TextField
                     {...field}
                     id="severityLevel"
-                    label="Severity Level"
+                    label="Severity Level*"
                     variant="outlined"
                     error={!!errors.severityLevel}
                     size="small"

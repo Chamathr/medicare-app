@@ -117,7 +117,7 @@ const ChildDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="childName"
-                    label="Name"
+                    label="Name*"
                     variant="outlined"
                     error={!!errors.childName}
                     size="small"
@@ -135,7 +135,7 @@ const ChildDataFormComponent: React.FC = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DatePicker", "DatePicker"]}>
                 <DatePicker
-                  label="Date of Birth"
+                  label="Date of Birth*"
                   value={date}
                   onChange={(newValue: any) => setDate(newValue)}
                 />
@@ -149,7 +149,7 @@ const ChildDataFormComponent: React.FC = () => {
               defaultValue=""
               render={({ field }) => (
                 <FormControl fullWidth size="small">
-                  <InputLabel id="age-label">Gender</InputLabel>
+                  <InputLabel id="age-label">Gender*</InputLabel>
                   <Select labelId="age-label" id="age" {...field}>
                     <MenuItem value={"male"}>Male</MenuItem>
                     <MenuItem value={"female"}>Female</MenuItem>
@@ -168,7 +168,7 @@ const ChildDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="childBirthCertificate"
-                    label="Birth Certificaton Number"
+                    label="Birth Certificaton Number*"
                     variant="outlined"
                     error={!!errors.childBirthCertificate}
                     size="small"
