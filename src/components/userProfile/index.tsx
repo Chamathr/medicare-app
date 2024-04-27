@@ -183,6 +183,32 @@ const ProfileCard = (data: any) => {
             </Box>
           </Grid>
         </SectionCard>
+        <SectionCard
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 50,
+            mt: 3,
+          }}
+        >
+          <Typography textTransform="uppercase" variant="h6">
+            SCORE : {data?.userData?.score}
+          </Typography>
+        </SectionCard>
+        <SectionCard
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: 50,
+              mt: 3,
+            }}
+          >
+            <Typography textTransform="uppercase" variant="h6">
+              {data?.userData?.severityLevel}
+            </Typography>
+          </SectionCard>
       </Box>
     </>
   );
