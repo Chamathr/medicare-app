@@ -16,9 +16,18 @@ const theme = createTheme({
 const Header: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AppBar position="static" sx={{ textAlign: "center" }}>
+      <AppBar position="static" sx={{ textAlign: "center", height: '80px', justifyContent: 'center' }}>
         <Toolbar>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              color: "#ffffff",
+              fontWeight: 900,
+              fontSize: "35px",
+            }}
+          >
             C-ME
           </Typography>
         </Toolbar>
