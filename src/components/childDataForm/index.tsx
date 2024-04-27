@@ -29,7 +29,7 @@ interface FormData {
   childBirthCertificate: string;
 }
 
-const ChildDataFormComponent: React.FC = () => {
+const ChildDataFormComponent = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
   const userDetails = userData?.user as IUser;
