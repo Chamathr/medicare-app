@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
@@ -71,20 +71,6 @@ const FinalDataFormComponent = () => {
         score: userData?.score,
         severityLevel: data?.severityLevel,
       });
-      console.log({
-        childName: userData?.user?.childName,
-        childDateOfBirth: userData?.user?.childDateOfBirth,
-        childGender: userData?.user?.childGender,
-        childBirthCertificate: userData?.user?.childBirthCertificate,
-        guardianName: userData?.user?.guardianName,
-        guardianAddress: userData?.user?.guardianAddress,
-        guardianEmail: userData?.user?.guardianEmail,
-        guardianPhone: userData?.user?.guardianPhone,
-        report: userData?.report,
-        riskFactors: userData?.riskFactors,
-        score: userData?.score,
-        severityLevel: data?.severityLevel,
-      });
       mutateUserData(body);
     } catch (error) {
       console.error("Error:", error);
@@ -120,7 +106,7 @@ const FinalDataFormComponent = () => {
             Final Assessment
           </Typography>
         </SectionCard>
-        {userData?.score && (
+        {userData?.score ? (
           <SectionCard
             sx={{
               display: "flex",
@@ -134,7 +120,7 @@ const FinalDataFormComponent = () => {
               SCORE : {userData?.score}
             </Typography>
           </SectionCard>
-        )}
+        ) : null}
         <SectionCard
           sx={{
             display: "flex",
@@ -148,7 +134,7 @@ const FinalDataFormComponent = () => {
             border: "1px solid #fc7703",
           }}
         >
-          <Box>
+          {/* <Box>
             <Controller
               name="severityLevel"
               control={control}
@@ -170,6 +156,73 @@ const FinalDataFormComponent = () => {
                 {errors.severityLevel.message}
               </Box>
             )}
+          </Box> */}
+           <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Severity Level</FormLabel>
+              <Controller
+                name="severityLevel"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                  >
+                    <FormControlLabel
+                      value="No impairment"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
+                      label="No impairment"
+                    />
+                    <FormControlLabel
+                      value="Mild impairment"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
+                      label="Mild impairment"
+                    />
+                    <FormControlLabel
+                      value="Moderate impairment"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
+                      label="Moderate impairment"
+                    />
+                    <FormControlLabel
+                      value="Severe impairment"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
+                      label="Severe impairment"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
           </Box>
         </SectionCard>
       </Box>
