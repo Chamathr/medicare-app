@@ -71,6 +71,20 @@ const FinalDataFormComponent = () => {
         score: userData?.score,
         severityLevel: data?.severityLevel,
       });
+      console.log({
+        childName: userData?.user?.childName,
+        childDateOfBirth: userData?.user?.childDateOfBirth,
+        childGender: userData?.user?.childGender,
+        childBirthCertificate: userData?.user?.childBirthCertificate,
+        guardianName: userData?.user?.guardianName,
+        guardianAddress: userData?.user?.guardianAddress,
+        guardianEmail: userData?.user?.guardianEmail,
+        guardianPhone: userData?.user?.guardianPhone,
+        report: userData?.report,
+        riskFactors: userData?.riskFactors,
+        score: userData?.score,
+        severityLevel: data?.severityLevel,
+      });
       mutateUserData(body);
     } catch (error) {
       console.error("Error:", error);
@@ -79,7 +93,11 @@ const FinalDataFormComponent = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {isLoading && <Loader />}
+      {isLoading && (
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+          <Loader />
+        </Box>
+      )}
       <Box>
         <Box
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
@@ -102,6 +120,21 @@ const FinalDataFormComponent = () => {
             Final Assessment
           </Typography>
         </SectionCard>
+        {userData?.score && (
+          <SectionCard
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: 50,
+              mt: 3,
+            }}
+          >
+            <Typography textTransform="uppercase" variant="h6">
+              SCORE : {userData?.score}
+            </Typography>
+          </SectionCard>
+        )}
         <SectionCard
           sx={{
             display: "flex",
