@@ -27,24 +27,28 @@ const steps = [
     label: "Step 1",
     factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
     description: `Description 1`,
+    weight: 2,
   },
   {
     id: 2,
     label: "Step 2",
     factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
     description: `Description 2`,
+    weight: 1,
   },
   {
     id: 3,
     label: "Step 3",
     factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
     description: `Description 3`,
+    weight: 2,
   },
   {
     id: 4,
     label: "Step 4",
     factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
     description: `Description 4`,
+    weight: 1,
   },
 ];
 
@@ -112,7 +116,7 @@ const Stepper = () => {
         guardianEmail: userData?.user?.guardianEmail,
         guardianPhone: userData?.user?.guardianPhone,
         report,
-        score: getScore(report),
+        score: getScore(report, steps),
       });
       mutateUserData(body);
     } catch (error) {
@@ -178,12 +182,13 @@ const Stepper = () => {
                     handleSelect={(data) =>
                       setScoreData({
                         ...scoreData,
-                        [(key + 1).toString()]: parseInt(data),
+                        [(key + 1).toString()]: parseInt(data) / 2,
                       })
                     }
-                    radioValue={reportData?.[steps[activeStep].id.toString()]?.[
-                      key + 1
-                    ]?.toString()}
+                    radioValue={(
+                      reportData?.[steps[activeStep].id.toString()]?.[key + 1] *
+                      2
+                    )?.toString()}
                     userData={userData}
                   />
                 </Box>
