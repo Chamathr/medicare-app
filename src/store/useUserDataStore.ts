@@ -18,7 +18,9 @@ export interface IRiskFactors {
 export interface IUserData {
   user: IUser | undefined;
   report: IReport | undefined;
-  riskFactors?: IRiskFactors | undefined;
+  riskFactors: IRiskFactors | undefined;
+  score: number | undefined;
+  severityLevel: string | undefined;
 }
 
 export interface IReport {

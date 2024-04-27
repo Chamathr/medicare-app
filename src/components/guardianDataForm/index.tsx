@@ -48,6 +48,8 @@ const GuardianDataFormComponent: React.FC = () => {
         childBirthCertificate: userDetails?.childBirthCertificate,
         ...data,
       },
+      score: userData?.score,
+      severityLevel: userData?.severityLevel
     });
     router.push("/users/add/risk-factors");
   };

@@ -64,6 +64,8 @@ const ChildDataFormComponent: React.FC = () => {
         ...data,
         childDateOfBirth: date?.toString() ?? "",
       },
+      score: userData?.score,
+      severityLevel: userData?.severityLevel
     });
     router.push("/users/add/guardian");
   };

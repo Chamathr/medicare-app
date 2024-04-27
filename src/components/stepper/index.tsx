@@ -53,20 +53,6 @@ const steps = [
 ];
 
 const Stepper = () => {
-  const {
-    mutate: mutateUserData,
-    isLoading,
-    error,
-  } = useMutation(addUserData, {
-    onSuccess: () => {
-      router.push(`/users`);
-    },
-    onError: () => {
-      const err = error as Error;
-      window.alert(err.message);
-    },
-  });
-
   const router = useRouter();
 
   const { userData, setUserData } = useUserDataStore();
@@ -90,6 +76,9 @@ const Stepper = () => {
         ...reportData,
         [steps[activeStep].id.toString()]: scoreData,
       },
+      riskFactors: userData?.riskFactors,
+      score: userData?.score,
+      severityLevel: userData?.severityLevel,
     });
     setScoreData(reportData?.[steps[activeStep + 1].id.toString()] ?? {});
   };
@@ -106,19 +95,14 @@ const Stepper = () => {
         [steps[activeStep].id.toString()]: scoreData,
       };
 
-      const body = JSON.stringify({
-        childName: userData?.user?.childName,
-        childDateOfBirth: userData?.user?.childDateOfBirth,
-        childGender: userData?.user?.childGender,
-        childBirthCertificate: userData?.user?.childBirthCertificate,
-        guardianName: userData?.user?.guardianName,
-        guardianAddress: userData?.user?.guardianAddress,
-        guardianEmail: userData?.user?.guardianEmail,
-        guardianPhone: userData?.user?.guardianPhone,
-        report,
+      setUserData({
+        report: report,
+        riskFactors: userData?.riskFactors,
+        user: userData?.user,
         score: getScore(report, steps),
+        severityLevel: userData?.severityLevel,
       });
-      mutateUserData(body);
+      router.push("/users/add/final");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -126,7 +110,6 @@ const Stepper = () => {
 
   return (
     <Box sx={{ minWidth: { xs: 300, sm: 500 }, flexGrow: 1 }}>
-      {isLoading && <Loader />}
       <Box>
         <Box
           sx={{
@@ -258,7 +241,7 @@ const Stepper = () => {
           }}
         >
           <MainButton type="submit" variant="contained" onClick={handleSubmit}>
-            Submit
+            NEXT
           </MainButton>
         </Box>
       )}

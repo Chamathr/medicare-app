@@ -4,6 +4,15 @@ interface IReprtDetails {
   [key: string]: string | number | boolean;
 }
 
+interface IRiskFactors {
+  prematureBirth: boolean;
+  lowBirthWeight: boolean;
+  neonatalICUStay: boolean;
+  historyOfSeizures: boolean;
+  neurologicalConditions?: string;
+  neurologicalConditionsFamily?: string;
+}
+
 export interface IReport extends Document {
   childName: string;
   childDateOfBirth: string;
@@ -14,7 +23,9 @@ export interface IReport extends Document {
   guardianEmail: string;
   guardianPhone: string;
   report: IReprtDetails;
+  riskFactors: IRiskFactors;
   score: number;
+  severityLevel: string;
 }
 
 const ReportSchema: Schema = new Schema({
@@ -27,7 +38,9 @@ const ReportSchema: Schema = new Schema({
   guardianEmail: { type: String, required: true },
   guardianPhone: { type: String, required: true },
   report: { type: Schema.Types.Mixed, required: true },
+  riskFactors: { type: Schema.Types.Mixed, required: true },
   score: { type: Number, required: true },
+  severityLevel: { type: String, required: true },
 });
 
 export default mongoose.models.Report ||

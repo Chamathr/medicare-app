@@ -57,6 +57,8 @@ const RiskFactorDataFormComponent = () => {
       report: userData?.report,
       user: userData?.user,
       riskFactors: data,
+      score: userData?.score,
+      severityLevel: userData?.severityLevel
     });
     router.push("/users/report");
   };
