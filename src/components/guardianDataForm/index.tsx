@@ -40,6 +40,7 @@ const GuardianDataFormComponent: React.FC = () => {
   const onSubmit = (data: FormData) => {
     setUserData({
       report: userData?.report,
+      riskFactors: userData?.riskFactors,
       user: {
         childName: userDetails?.childName,
         childDateOfBirth: userDetails?.childDateOfBirth,
@@ -48,7 +49,7 @@ const GuardianDataFormComponent: React.FC = () => {
         ...data,
       },
     });
-    router.push("/users/report");
+    router.push("/users/add/risk-factors");
   };
 
   return (

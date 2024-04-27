@@ -134,7 +134,7 @@ const Stepper = () => {
             display: "flex",
             justifyContent: "center",
           }}
-          onClick={() => router.push("/users/add/guardian")}
+          onClick={() => router.push("/users/add/risk-factors")}
         >
           <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
             <ReplyAllIcon />

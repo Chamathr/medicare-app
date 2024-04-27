@@ -58,7 +58,12 @@ const ChildDataFormComponent: React.FC = () => {
   const onSubmit = (data: FormData) => {
     setUserData({
       report: userData?.report,
-      user: { ...userDetails, ...data, childDateOfBirth: date?.toString() ?? "" },
+      riskFactors: userData?.riskFactors,
+      user: {
+        ...userDetails,
+        ...data,
+        childDateOfBirth: date?.toString() ?? "",
+      },
     });
     router.push("/users/add/guardian");
   };

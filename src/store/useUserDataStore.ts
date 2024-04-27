@@ -6,9 +6,19 @@ interface IScoreData {
   [key: string]: number;
 }
 
+export interface IRiskFactors {
+  prematureBirth: boolean;
+  lowBirthWeight: boolean;
+  neonatalICUStay: boolean;
+  historyOfSeizures: boolean;
+  neurologicalConditions?: string;
+  neurologicalConditionsFamily?: string;
+}
+
 export interface IUserData {
   user: IUser | undefined;
   report: IReport | undefined;
+  riskFactors?: IRiskFactors | undefined;
 }
 
 export interface IReport {
