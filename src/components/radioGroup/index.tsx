@@ -1,7 +1,6 @@
 import * as React from "react";
 import Radio from "@mui/material/Radio";
 import { Box } from "@mui/material";
-import { pink } from "@mui/material/colors";
 import { useEffect, useState } from "react";
 import { IUserData } from "@/store";
 

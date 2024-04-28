@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
 import { SectionCard } from "../card";
-import { SCORES } from "@/consts/report";
 
 const steps = [
   {

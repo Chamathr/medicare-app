@@ -23,16 +23,14 @@ const getScore = (data: IReport | undefined, stepData: any) => {
 const getSeverityLevel = (severityLevel: string, score: number) => {
   if (severityLevel) {
     return severityLevel;
-  } else if (score > 0 && score <= 10) {
+  } else if (score > 0 && score <= 3) {
     return SEVERITY_LEVEL.LEVEL_1;
-  } else if (score > 10 && score <= 20) {
+  } else if (score > 3 && score <= 5.5) {
     return SEVERITY_LEVEL.LEVEL_2;
-  } else if (score > 20 && score <= 30) {
+  } else if (score > 5.5 && score <= 7.5) {
     return SEVERITY_LEVEL.LEVEL_3;
-  } else if (score > 30 && score <= 40) {
+  } else if (score > 7.5) {
     return SEVERITY_LEVEL.LEVEL_4;
-  } else if (score > 40) {
-    return SEVERITY_LEVEL.LEVEL_5;
   } else {
     return "";
   }
@@ -55,4 +53,4 @@ const getScoreValue = (key: number) => {
   }
 };
 
-export { getScore, getScoreValue };
+export { getScore, getScoreValue, getSeverityLevel };
