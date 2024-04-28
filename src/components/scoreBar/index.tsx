@@ -7,17 +7,17 @@ import { Box, Stack } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00008B",
+      main: "#fc7703",
     },
   },
 });
 
-const ScoreBar: React.FC = () => {
+const ScoreBar = () => {
   return (
     <ThemeProvider theme={theme}>
       <AppBar
         position="static"
-        sx={{ textAlign: "center", borderRadius: "10px" }}
+        sx={{ textAlign: "center", borderRadius: "10px", color: '#ffffff' }}
       >
         <Stack direction="row" spacing={2.2} pl={2} pr={2} pt={1} pb={1}>
           <Box>0.5</Box>

@@ -14,7 +14,7 @@ const getScore = (data: IReport | undefined, stepData: any) => {
       totalWeight += stepData[parseInt(key) - 1]?.weight;
       return (acc + innerTotal) * stepData[parseInt(key) - 1]?.weight;
     }, 0);
-    return total / totalWeight;
+    return parseFloat((total / totalWeight)?.toFixed(1));
   }
   return 0;
 };

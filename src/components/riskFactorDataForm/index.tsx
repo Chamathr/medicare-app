@@ -57,6 +57,8 @@ const RiskFactorDataFormComponent = () => {
       report: userData?.report,
       user: userData?.user,
       riskFactors: data,
+      score: userData?.score,
+      severityLevel: userData?.severityLevel,
     });
     router.push("/users/report");
   };
@@ -68,7 +70,7 @@ const RiskFactorDataFormComponent = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/add/guardian")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -95,14 +97,14 @@ const RiskFactorDataFormComponent = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #00008B",
+            border: "1px solid #fc7703",
           }}
         >
           <Box>
             <FormControl component="fieldset">
               <FormLabel component="legend">Premature birth?</FormLabel>
               <Controller
-              defaultValue={undefined}
+                defaultValue={undefined}
                 name="prematureBirth"
                 control={control}
                 render={({ field }) => (
@@ -112,12 +114,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -138,12 +156,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -164,12 +198,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -190,12 +240,28 @@ const RiskFactorDataFormComponent = () => {
                   >
                     <FormControlLabel
                       value="true"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="Yes"
                     />
                     <FormControlLabel
                       value="false"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#fc7703",
+                            },
+                          }}
+                        />
+                      }
                       label="No"
                     />
                   </RadioGroup>
@@ -255,7 +321,12 @@ const RiskFactorDataFormComponent = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#00008B" }}
+          sx={{
+            background: "#fc7703",
+            "&:hover": {
+              bgcolor: "#ebd834",
+            },
+          }}
         >
           Next
         </Button>

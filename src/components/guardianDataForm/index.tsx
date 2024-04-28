@@ -48,6 +48,8 @@ const GuardianDataFormComponent: React.FC = () => {
         childBirthCertificate: userDetails?.childBirthCertificate,
         ...data,
       },
+      score: userData?.score,
+      severityLevel: userData?.severityLevel,
     });
     router.push("/users/add/risk-factors");
   };
@@ -59,7 +61,7 @@ const GuardianDataFormComponent: React.FC = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/add/child")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -72,7 +74,9 @@ const GuardianDataFormComponent: React.FC = () => {
             mt: 3,
           }}
         >
-          <Typography textTransform="uppercase" variant="h6">Guardian Data</Typography>
+          <Typography textTransform="uppercase" variant="h6">
+            Guardian Data
+          </Typography>
         </SectionCard>
         <SectionCard
           sx={{
@@ -84,7 +88,7 @@ const GuardianDataFormComponent: React.FC = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #00008B",
+            border: "1px solid #fc7703",
           }}
         >
           <Box>
@@ -97,7 +101,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianName"
-                    label="Name"
+                    label="Name*"
                     variant="outlined"
                     error={!!errors.guardianName}
                     size="small"
@@ -121,7 +125,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianAddress"
-                    label="Address"
+                    label="Address*"
                     variant="outlined"
                     error={!!errors.guardianAddress}
                     size="small"
@@ -145,7 +149,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianAddress"
-                    label="Email"
+                    label="Email*"
                     variant="outlined"
                     error={!!errors.guardianEmail}
                     size="small"
@@ -170,7 +174,7 @@ const GuardianDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="guardianPhone"
-                    label="Contact Number"
+                    label="Contact Number*"
                     variant="outlined"
                     error={!!errors.guardianPhone}
                     size="small"
@@ -190,7 +194,12 @@ const GuardianDataFormComponent: React.FC = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#00008B" }}
+          sx={{
+            background: "#fc7703",
+            "&:hover": {
+              bgcolor: "#ebd834",
+            },
+          }}
         >
           Next
         </Button>

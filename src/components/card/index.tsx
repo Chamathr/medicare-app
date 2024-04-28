@@ -21,8 +21,8 @@ export const SectionCard = ({
         borderRadius: "5px",
         bgcolor: "rgba(255, 255, 255, 0.5)",
         boxShadow: "none",
-        border: "1px solid #00008B",
-        color: '#00008B',
+        border: "1px solid #fc7703",
+        color: '#fc7703',
         ...sx,
       }}
     >

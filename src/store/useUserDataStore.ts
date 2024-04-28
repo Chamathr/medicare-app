@@ -18,7 +18,9 @@ export interface IRiskFactors {
 export interface IUserData {
   user: IUser | undefined;
   report: IReport | undefined;
-  riskFactors?: IRiskFactors | undefined;
+  riskFactors: IRiskFactors | undefined;
+  score: number | undefined;
+  severityLevel: string | undefined;
 }
 
 export interface IReport {
@@ -42,6 +44,7 @@ interface Store {
 
 interface Actions {
   setUserData: (data: IUserData) => void;
+  reSetUserData: () => void;
 }
 
 const initialState: Store = {
@@ -61,6 +64,16 @@ const initialState: Store = {
 const useUserDataStore = create<Store & Actions>((set) => ({
   ...initialState,
   setUserData: (data: IUserData) => set(() => ({ userData: data })),
+  reSetUserData: () =>
+    set(() => ({
+      userData: {
+        user: undefined,
+        report: undefined,
+        riskFactors: undefined,
+        score: undefined,
+        severityLevel: undefined,
+      },
+    })),
 }));
 
 export { useUserDataStore };

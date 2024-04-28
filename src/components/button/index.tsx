@@ -24,7 +24,10 @@ export const MainButton = ({
       {...props}
       sx={{
         ...sx,
-        background: "#00008B",
+        background: "#fc7703",
+        "&:hover": {
+          bgcolor: "#ebd834",
+        },
       }}
     >
       {children}

@@ -8,14 +8,11 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { IReport, IUser, useUserDataStore } from "@/store";
-import { Avatar, Card } from "@mui/material";
+import { Avatar } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useState } from "react";
 import { getScore } from "@/utils/report";
 import { useRouter } from "next/navigation";
-import { useMutation } from "react-query";
-import Loader from "../loader";
-import { addUserData } from "@/helpers/users";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
 import { SectionCard } from "../card";
@@ -24,49 +21,91 @@ import ScoreBar from "../scoreBar";
 const steps = [
   {
     id: 1,
-    label: "Step 1",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 1`,
+    label: "Light Gazing",
+    factors: [
+      "Non purposeful gaze,photophobia, no visual fixing to light, no fixation on anything",
+      "Look at object when illuminated only",
+      "Prefer illuminated object, But can look at other objects (Non illuminated)",
+      "Can be distracted by light, But looks well without light",
+      "Looks well, Not distracted by light",
+    ],
     weight: 2,
   },
   {
     id: 2,
-    label: "Step 2",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 2`,
+    label: "Colour Preference",
+    factors: [
+      "Attends only in near spaces to a single colour -  visual  attention not good enough to a identify a favourite colour",
+      "Strong single colour Preference 'Favourite Colour'",
+      "Can identify objects, environments with 2,3 colours (within 4-6 field) 2 or 3 favourite colours",
+      "More colours, familiar patterns regarded, but not all colours",
+      "No colours or patterns preference",
+    ],
     weight: 1,
   },
   {
     id: 3,
-    label: "Step 3",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 3`,
+    label: "Need For Movement",
+    factors: [
+      "Attends only targets with movement and or reflective properties. ( May attentive to ceiling fan)",
+      "Movement needed to establish attention on target/ destination but not needed for continuation",
+      "Distract from target when movement in environment, movements not necessary to initiate looking",
+      "Movement is not required for attention within 3 to 4 feet but needed beyond this. Not distracted in near spaces by environmental movements",
+      "Movement not necessary for near or distant vision, typical response to moving targets",
+    ],
     weight: 2,
   },
   {
     id: 4,
-    label: "Step 4",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 4`,
+    label: "Visual Field Preference",
+    factors: [
+      "Distinct field preference,( one eye for peripheral and other I for Central vision)",
+      "Yours both right and left peripheral fields. But will continue to show strong preference for original peripheral field",
+      "Visual field preference not seen in familiar inputs with near activities",
+      "Increasing use of right and left fields for near and distant activities ( preference not always seen even in distant vision)",
+      "Visual fields unrestricted",
+    ],
+    weight: 1,
+  },
+  {
+    id: 5,
+    label: "Difficulty With Distance Viewing",
+    factors: [
+      "Attends near space only less than 2 feet",
+      "Occasional visual attention to familiar, moving or large targets at 2 to 4 feet",
+      "Visual attention extends beyond near space up to 4-6 feet",
+      "Visual attention extends to 10 feet with targets that produce movement ( not to all objects)",
+      "Visual attention extends beyond 20 feet",
+    ],
+    weight: 1,
+  },
+  {
+    id: 6,
+    label: "Visual Reflective Response",
+    factors: [
+      "No blink in response to touch and no visual threat response",
+      "Blink in response to touch, but response may be latent ( not immediate). No threat response",
+      "Blink in response to touch inconsistently present, intermittent visual threat response",
+      "Visual threat inconsistent, touch consistent",
+      "Visual reflexes always present",
+    ],
+    weight: 1,
+  },
+  {
+    id: 7,
+    label: "Visual Latency",
+    factors: [
+      "Prolonged periods of visual latency ( delay to initiate). Than 15 seconds",
+      "Decrease in latency after periods of consistent viewing",
+      "Latency present only when the baby is tired, stressed over overstimulated",
+      "Latency is rarely present",
+      "No delay ( latency resolved)",
+    ],
     weight: 1,
   },
 ];
 
 const Stepper = () => {
-  const {
-    mutate: mutateUserData,
-    isLoading,
-    error,
-  } = useMutation(addUserData, {
-    onSuccess: () => {
-      router.push(`/users`);
-    },
-    onError: () => {
-      const err = error as Error;
-      window.alert(err.message);
-    },
-  });
-
   const router = useRouter();
 
   const { userData, setUserData } = useUserDataStore();
@@ -90,6 +129,9 @@ const Stepper = () => {
         ...reportData,
         [steps[activeStep].id.toString()]: scoreData,
       },
+      riskFactors: userData?.riskFactors,
+      score: userData?.score,
+      severityLevel: userData?.severityLevel,
     });
     setScoreData(reportData?.[steps[activeStep + 1].id.toString()] ?? {});
   };
@@ -106,27 +148,21 @@ const Stepper = () => {
         [steps[activeStep].id.toString()]: scoreData,
       };
 
-      const body = JSON.stringify({
-        childName: userData?.user?.childName,
-        childDateOfBirth: userData?.user?.childDateOfBirth,
-        childGender: userData?.user?.childGender,
-        childBirthCertificate: userData?.user?.childBirthCertificate,
-        guardianName: userData?.user?.guardianName,
-        guardianAddress: userData?.user?.guardianAddress,
-        guardianEmail: userData?.user?.guardianEmail,
-        guardianPhone: userData?.user?.guardianPhone,
-        report,
+      setUserData({
+        report: report,
+        riskFactors: userData?.riskFactors,
+        user: userData?.user,
         score: getScore(report, steps),
+        severityLevel: userData?.severityLevel,
       });
-      mutateUserData(body);
+      router.push("/users/add/final");
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
   return (
-    <Box sx={{ minWidth: { xs: 300, sm: 500 }, flexGrow: 1 }}>
-      {isLoading && <Loader />}
+    <Box sx={{ width: { xs: 300, sm: 500 }, flexGrow: 1 }}>
       <Box>
         <Box
           sx={{
@@ -136,7 +172,7 @@ const Stepper = () => {
           }}
           onClick={() => router.push("/users/add/risk-factors")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -145,16 +181,16 @@ const Stepper = () => {
         sx={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           height: 50,
           pl: 2,
           mt: 3,
         }}
       >
-        <Typography>{steps[activeStep].label}</Typography>
+        <Typography variant="h6">{steps[activeStep].label}</Typography>
       </SectionCard>
       <Box
         sx={{
-          minHeight: 500,
           display: "flex",
           flexDirection: "column",
           height: "100%",
@@ -197,71 +233,81 @@ const Stepper = () => {
           })}
         </SectionCard>
       </Box>
-      <MobileStepper
+      <Box
         sx={{
-          width: "100%",
-          borderRadius: "5px",
-          bgcolor: "rgba(255, 255, 255, 0.5)",
-          boxShadow: "none",
-          border: "1px solid #00008B",
-          color: "#00008B",
+          mt: 3,
         }}
-        variant="text"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            sx={{
-              color: "#00008B",
-              fontWeight: 700,
-            }}
-            disabled={activeStep === maxSteps - 1}
-          >
-            Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button
-            size="small"
-            onClick={handleBack}
-            sx={{
-              color: "#00008B",
-              fontWeight: 700,
-            }}
-            disabled={activeStep === 0}
-          >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-      {activeStep === maxSteps - 1 && (
-        <Box
+      >
+        <MobileStepper
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            width: "30%",
-            margin: "auto",
-            pt: 3,
+            width: "100%",
+            borderRadius: "5px",
+            bgcolor: "rgba(255, 255, 255, 0.5)",
+            boxShadow: "none",
+            border: "1px solid #fc7703",
+            color: "#fc7703",
           }}
-        >
-          <MainButton type="submit" variant="contained" onClick={handleSubmit}>
-            Submit
-          </MainButton>
-        </Box>
-      )}
+          variant="text"
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          nextButton={
+            <Button
+              size="small"
+              onClick={handleNext}
+              sx={{
+                color: "#fc7703",
+                fontWeight: 700,
+              }}
+              disabled={activeStep === maxSteps - 1}
+            >
+              Next
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button
+              size="small"
+              onClick={handleBack}
+              sx={{
+                color: "#fc7703",
+                fontWeight: 700,
+              }}
+              disabled={activeStep === 0}
+            >
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+              Back
+            </Button>
+          }
+        />
+        {activeStep === maxSteps - 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "30%",
+              margin: "auto",
+              pt: 3,
+            }}
+          >
+            <MainButton
+              type="submit"
+              variant="contained"
+              onClick={handleSubmit}
+            >
+              NEXT
+            </MainButton>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };

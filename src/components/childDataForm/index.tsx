@@ -29,13 +29,13 @@ interface FormData {
   childBirthCertificate: string;
 }
 
-const ChildDataFormComponent: React.FC = () => {
+const ChildDataFormComponent = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
   const userDetails = userData?.user as IUser;
 
   const [date, setDate] = useState<Dayjs | null>(
-    dayjs(userDetails?.childDateOfBirth) ?? dayjs("2024-01-01")
+    userDetails?.childDateOfBirth ? dayjs(userDetails?.childDateOfBirth) : null
   );
 
   const defaultValues = useMemo(() => {
@@ -64,6 +64,8 @@ const ChildDataFormComponent: React.FC = () => {
         ...data,
         childDateOfBirth: date?.toString() ?? "",
       },
+      score: userData?.score,
+      severityLevel: userData?.severityLevel,
     });
     router.push("/users/add/guardian");
   };
@@ -75,7 +77,7 @@ const ChildDataFormComponent: React.FC = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users")}
         >
-          <Avatar sx={{ bgcolor: "#00008B" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -102,7 +104,7 @@ const ChildDataFormComponent: React.FC = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #00008B",
+            border: "1px solid #fc7703",
           }}
         >
           <Box>
@@ -115,7 +117,7 @@ const ChildDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="childName"
-                    label="Name"
+                    label="Name*"
                     variant="outlined"
                     error={!!errors.childName}
                     size="small"
@@ -133,7 +135,7 @@ const ChildDataFormComponent: React.FC = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DatePicker", "DatePicker"]}>
                 <DatePicker
-                  label="Date of Birth"
+                  label="Date of Birth*"
                   value={date}
                   onChange={(newValue: any) => setDate(newValue)}
                 />
@@ -147,7 +149,7 @@ const ChildDataFormComponent: React.FC = () => {
               defaultValue=""
               render={({ field }) => (
                 <FormControl fullWidth size="small">
-                  <InputLabel id="age-label">Gender</InputLabel>
+                  <InputLabel id="age-label">Gender*</InputLabel>
                   <Select labelId="age-label" id="age" {...field}>
                     <MenuItem value={"male"}>Male</MenuItem>
                     <MenuItem value={"female"}>Female</MenuItem>
@@ -166,7 +168,7 @@ const ChildDataFormComponent: React.FC = () => {
                   <TextField
                     {...field}
                     id="childBirthCertificate"
-                    label="Birth Certificaton Number"
+                    label="Birth Certificaton Number*"
                     variant="outlined"
                     error={!!errors.childBirthCertificate}
                     size="small"
@@ -186,7 +188,12 @@ const ChildDataFormComponent: React.FC = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#00008B" }}
+          sx={{
+            background: "#fc7703",
+            "&:hover": {
+              bgcolor: "#ebd834",
+            },
+          }}
         >
           Next
         </Button>

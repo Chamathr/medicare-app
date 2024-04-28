@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00008B",
+      main: "#fc7703",
     },
   },
 });
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
     <ThemeProvider theme={theme}>
       <AppBar position="static" color="primary" sx={{ textAlign: "center" }}>
         <Toolbar>
-          <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="body1" component="div" sx={{ flexGrow: 1, color: '#ffffff' }}>
             &copy; 2024
           </Typography>
         </Toolbar>
