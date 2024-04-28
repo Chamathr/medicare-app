@@ -27,7 +27,7 @@ export default function RootLayout({
           <ReactQueryWrapper>
             <Box
               sx={{
-                minWidth: { xs: 300, sm: 500 },
+                width: { xs: 330, sm: 500 },
               }}
             >
               {children}

@@ -21,7 +21,12 @@ const DataTable = () => {
     error,
   } = useQuery("user-list", fetchUserList);
 
-  if (isLoading) return <Loader />;
+  if (isLoading)
+    return (
+      <Box display={"flex"} justifyContent={"center"}>
+        <Loader />
+      </Box>
+    );
 
   if (error) return <Box>Error: {error.toString()}</Box>;
 
@@ -35,7 +40,7 @@ const DataTable = () => {
       render: (dateOfBirth: string) => dayjs(dateOfBirth).format("DD-MM-YYYY"),
     },
     {
-      title: "Actions",
+      title: "Profile",
       key: "actions",
       render: (record: any) => (
         <>
@@ -51,7 +56,7 @@ const DataTable = () => {
 
   return (
     <>
-      <Box display={'flex'}>
+      <Box display={"flex"} justifyContent={"center"}>
         <Box
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/")}
@@ -61,7 +66,12 @@ const DataTable = () => {
           </Avatar>
         </Box>
         <Box
-          sx={{ cursor: "pointer", display: "flex", justifyContent: "center", ml: 3 }}
+          sx={{
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            ml: 3,
+          }}
           onClick={() => {
             reSetUserData();
             router.push("/users/add/child");
