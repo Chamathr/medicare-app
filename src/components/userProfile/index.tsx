@@ -319,8 +319,9 @@ const ProfileCard = (data: any) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            height: 50,
+            minHeight: 50,
             mt: 3,
+            p: 2
           }}
         >
           <Typography textTransform="uppercase" variant="h6">

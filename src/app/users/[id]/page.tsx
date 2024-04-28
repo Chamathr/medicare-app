@@ -14,7 +14,12 @@ const Users = () => {
     error,
   } = useQuery(["user-profile", id], () => fetchUserData(id));
 
-  if (isLoading) return <Loader />;
+  if (isLoading)
+    return (
+      <Box display={"flex"} justifyContent={"center"}>
+        <Loader />
+      </Box>
+    );
 
   if (error) return <Box>Error: {error.toString()}</Box>;
   return (
