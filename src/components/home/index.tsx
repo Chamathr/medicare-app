@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
       transform: "translateY(0)",
     },
     "100%": {
-      transform: "translateY(-100px)",
+      transform: "translateY(100px)",
     },
   },
 }));
@@ -35,6 +35,8 @@ const HomeComponent = () => {
           justifyContent: "center",
           height: 500,
           mt: 3,
+          backgroundImage:
+            'url("https://as1.ftcdn.net/v2/jpg/04/83/41/64/1000_F_483416423_KxwEie9pz03p3PLLwu0I5yd4mj7dX4iP.jpg")',
         }}
       >
         <Grid
@@ -62,8 +64,8 @@ const HomeComponent = () => {
               variant="contained"
               onClick={() => router.push("/users")}
               sx={{
-                mt: 5,
-                fontSize: 20
+                mt: 20,
+                fontSize: 20,
               }}
             >
               LETS START
