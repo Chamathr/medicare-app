@@ -31,17 +31,30 @@ const DataTable = () => {
   if (error) return <Box>Error: {error.toString()}</Box>;
 
   const columns = [
-    { title: "Name", dataIndex: "childName", key: "childName" },
-    { title: "Gender", dataIndex: "childGender", key: "childGender" },
     {
-      title: "Date Of Birth",
-      dataIndex: "childDateOfBirth",
-      key: "childDateOfBirth",
-      render: (dateOfBirth: string) => dayjs(dateOfBirth).format("DD-MM-YYYY"),
+      title: "Name",
+      dataIndex: "childName",
+      key: "childName",
+      width: "50%",
+      render: (text: string) => (
+        <Box sx={{ wordBreak: "break-word" }}>{text}</Box>
+      ),
+    },
+    {
+      title: "Gender",
+      dataIndex: "childGender",
+      key: "childGender",
+      width: "25%",
+      render: (text: string) => (
+        <Box sx={{ wordBreak: "break-word", textTransform: "capitalize" }}>
+          {text}
+        </Box>
+      ),
     },
     {
       title: "Profile",
       key: "actions",
+      width: "25%",
       render: (record: any) => (
         <>
           <Button onClick={() => router.push(`/users/${record._id}`)}>
