@@ -70,7 +70,7 @@ const RiskFactorDataFormComponent = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/add/guardian")}
         >
-          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#ffcc00" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -97,7 +97,7 @@ const RiskFactorDataFormComponent = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #fc7703",
+            border: "1px solid #ffcc00",
           }}
         >
           <Box>
@@ -120,7 +120,7 @@ const RiskFactorDataFormComponent = () => {
                           <Radio
                             sx={{
                               "&.Mui-checked": {
-                                color: "#fc7703",
+                                color: "#ffcc00",
                               },
                             }}
                           />
@@ -133,7 +133,7 @@ const RiskFactorDataFormComponent = () => {
                           <Radio
                             sx={{
                               "&.Mui-checked": {
-                                color: "#fc7703",
+                                color: "#ffcc00",
                               },
                             }}
                           />
@@ -163,7 +163,7 @@ const RiskFactorDataFormComponent = () => {
                         <Radio
                           sx={{
                             "&.Mui-checked": {
-                              color: "#fc7703",
+                              color: "#ffcc00",
                             },
                           }}
                         />
@@ -176,7 +176,7 @@ const RiskFactorDataFormComponent = () => {
                         <Radio
                           sx={{
                             "&.Mui-checked": {
-                              color: "#fc7703",
+                              color: "#ffcc00",
                             },
                           }}
                         />
@@ -205,7 +205,7 @@ const RiskFactorDataFormComponent = () => {
                         <Radio
                           sx={{
                             "&.Mui-checked": {
-                              color: "#fc7703",
+                              color: "#ffcc00",
                             },
                           }}
                         />
@@ -218,7 +218,7 @@ const RiskFactorDataFormComponent = () => {
                         <Radio
                           sx={{
                             "&.Mui-checked": {
-                              color: "#fc7703",
+                              color: "#ffcc00",
                             },
                           }}
                         />
@@ -247,7 +247,7 @@ const RiskFactorDataFormComponent = () => {
                         <Radio
                           sx={{
                             "&.Mui-checked": {
-                              color: "#fc7703",
+                              color: "#ffcc00",
                             },
                           }}
                         />
@@ -260,7 +260,7 @@ const RiskFactorDataFormComponent = () => {
                         <Radio
                           sx={{
                             "&.Mui-checked": {
-                              color: "#fc7703",
+                              color: "#ffcc00",
                             },
                           }}
                         />
@@ -327,7 +327,7 @@ const RiskFactorDataFormComponent = () => {
           type="submit"
           variant="contained"
           sx={{
-            background: "#fc7703",
+            background: "#ffcc00",
             "&:hover": {
               bgcolor: "#ebd834",
             },

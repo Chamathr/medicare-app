@@ -9,7 +9,7 @@ import Link from "next/link";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#fc7703",
+      main: "#ffcc00",
     },
   },
 });

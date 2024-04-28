@@ -103,7 +103,7 @@ const FinalDataFormComponent = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/report")}
         >
-          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#ffcc00" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -145,7 +145,7 @@ const FinalDataFormComponent = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #fc7703",
+            border: "1px solid #ffcc00",
           }}
         >
           <Box>
@@ -162,7 +162,7 @@ const FinalDataFormComponent = () => {
                           <Radio
                             sx={{
                               "&.Mui-checked": {
-                                color: "#fc7703",
+                                color: "#ffcc00",
                               },
                             }}
                           />
@@ -177,7 +177,7 @@ const FinalDataFormComponent = () => {
                           <Radio
                             sx={{
                               "&.Mui-checked": {
-                                color: "#fc7703",
+                                color: "#ffcc00",
                               },
                             }}
                           />
@@ -192,7 +192,7 @@ const FinalDataFormComponent = () => {
                           <Radio
                             sx={{
                               "&.Mui-checked": {
-                                color: "#fc7703",
+                                color: "#ffcc00",
                               },
                             }}
                           />
@@ -207,7 +207,7 @@ const FinalDataFormComponent = () => {
                           <Radio
                             sx={{
                               "&.Mui-checked": {
-                                color: "#fc7703",
+                                color: "#ffcc00",
                               },
                             }}
                           />
@@ -227,7 +227,7 @@ const FinalDataFormComponent = () => {
           type="submit"
           variant="contained"
           sx={{
-            background: "#fc7703",
+            background: "#ffcc00",
             "&:hover": {
               bgcolor: "#ebd834",
             },

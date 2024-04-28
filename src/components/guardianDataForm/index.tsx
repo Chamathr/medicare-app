@@ -61,7 +61,7 @@ const GuardianDataFormComponent = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/users/add/child")}
         >
-          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#ffcc00" }} variant="rounded">
             <ReplyAllIcon />
           </Avatar>
         </Box>
@@ -88,7 +88,7 @@ const GuardianDataFormComponent = () => {
             pb: 8,
             pl: 8,
             pr: 8,
-            border: "1px solid #fc7703",
+            border: "1px solid #ffcc00",
           }}
         >
           <Box>
@@ -199,7 +199,7 @@ const GuardianDataFormComponent = () => {
           type="submit"
           variant="contained"
           sx={{
-            background: "#fc7703",
+            background: "#ffcc00",
             "&:hover": {
               bgcolor: "#ebd834",
             },
