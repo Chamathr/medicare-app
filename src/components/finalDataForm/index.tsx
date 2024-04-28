@@ -215,21 +215,6 @@ const FinalDataFormComponent = () => {
                         label={SEVERITY_LEVEL.LEVEL_4}
                       />
                     </Box>
-                    <Box mt={2}>
-                      <FormControlLabel
-                        value={SEVERITY_LEVEL.LEVEL_5}
-                        control={
-                          <Radio
-                            sx={{
-                              "&.Mui-checked": {
-                                color: "#fc7703",
-                              },
-                            }}
-                          />
-                        }
-                        label={SEVERITY_LEVEL.LEVEL_5}
-                      />
-                    </Box>
                   </RadioGroup>
                 )}
               />

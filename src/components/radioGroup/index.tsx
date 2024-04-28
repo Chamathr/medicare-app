@@ -1,19 +1,20 @@
 import * as React from "react";
 import Radio from "@mui/material/Radio";
-import { Box } from "@mui/material";
-import { pink } from "@mui/material/colors";
+import { Avatar, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { IUserData } from "@/store";
+import { getScoreValue } from "@/utils/report";
 
 interface Props {
   radioValue: string | undefined;
   label: string;
   handleSelect: (data: string) => void;
   userData: IUserData | undefined;
+  index: number;
 }
 
 const RowRadioButtonsGroup = (Props: Props) => {
-  const { label, handleSelect, radioValue, userData } = Props;
+  const { label, handleSelect, radioValue, userData, index } = Props;
 
   const [selectedValue, setSelectedValue] = useState<string | undefined>(
     radioValue ?? "0"
@@ -41,19 +42,32 @@ const RowRadioButtonsGroup = (Props: Props) => {
       <Box
         sx={{
           display: { sm: "grid" },
-          gridTemplateColumns: { sm: "50% 50%" },
+          gridTemplateColumns: { sm: "80% 20%" },
         }}
       >
-        <Box
-          sx={{
-            display: { sm: "flex" },
-            alignItems: { sm: "center" },
-            color: "#00000099",
-            fontWeight: 500,
-            fontSize: 14,
-          }}
-        >
-          {label}
+        <Box display={"flex"}>
+          <Box
+            sx={{
+              display: { sm: "flex" },
+              alignItems: { sm: "center" },
+            }}
+          >
+            <Avatar sx={{ bgcolor: "#fc7703", zoom: 0.6 }} variant="circular">
+              {getScoreValue(index)}
+            </Avatar>
+          </Box>
+          <Box
+            sx={{
+              ml: 2,
+              display: { sm: "flex" },
+              alignItems: { sm: "center" },
+              color: "#00000099",
+              fontWeight: 500,
+              fontSize: 14,
+            }}
+          >
+            {label}
+          </Box>
         </Box>
         <Box
           sx={{
@@ -64,38 +78,6 @@ const RowRadioButtonsGroup = (Props: Props) => {
         >
           <Radio
             {...controlProps("1")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("3")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("5")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("7")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("9")}
             sx={{
               "&.Mui-checked": {
                 color: "#fc7703",

@@ -2,10 +2,6 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { StateCreator } from "zustand";
 
-interface IScoreData {
-  [key: string]: number;
-}
-
 export interface IRiskFactors {
   prematureBirth: boolean;
   lowBirthWeight: boolean;
@@ -24,7 +20,7 @@ export interface IUserData {
 }
 
 export interface IReport {
-  [key: string]: IScoreData;
+  [key: string]: number;
 }
 
 export interface IUser {
