@@ -215,6 +215,7 @@ const Stepper = () => {
               <>
                 <Box sx={{ p: 1 }}>
                   <RowRadioButtonsGroup
+                    index={key}
                     label={item}
                     handleSelect={(data) =>
                       setScoreData({
