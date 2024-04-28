@@ -22,6 +22,7 @@ import { useMutation } from "react-query";
 import { addUserData } from "@/helpers/users";
 import Loader from "../loader";
 import { getSeverityLevel } from "@/utils/report";
+import { SEVERITY_LEVEL } from "@/consts/report";
 
 interface FormData {
   severityLevel: string;
@@ -53,7 +54,6 @@ const FinalDataFormComponent = () => {
     };
   }, [severityLevel, score]);
 
-  console.log("defaultValues", defaultValues);
   const {
     handleSubmit,
     control,
@@ -141,7 +141,7 @@ const FinalDataFormComponent = () => {
             flexDirection: "column",
             mt: 3,
             gap: 3,
-            pt: 8,
+            pt: 5,
             pb: 8,
             pl: 8,
             pr: 8,
@@ -155,58 +155,81 @@ const FinalDataFormComponent = () => {
                 control={control}
                 render={({ field }) => (
                   <RadioGroup {...field}>
-                    <FormControlLabel
-                      value="No impairment"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#fc7703",
-                            },
-                          }}
-                        />
-                      }
-                      label="No impairment"
-                    />
-                    <FormControlLabel
-                      value="Mild impairment"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#fc7703",
-                            },
-                          }}
-                        />
-                      }
-                      label="Mild impairment"
-                    />
-                    <FormControlLabel
-                      value="Moderate impairment"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#fc7703",
-                            },
-                          }}
-                        />
-                      }
-                      label="Moderate impairment"
-                    />
-                    <FormControlLabel
-                      value="Severe impairment"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#fc7703",
-                            },
-                          }}
-                        />
-                      }
-                      label="Severe impairment"
-                    />
+                    <Box mt={2}>
+                      <FormControlLabel
+                        value={SEVERITY_LEVEL.LEVEL_1}
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label={SEVERITY_LEVEL.LEVEL_1}
+                      />
+                    </Box>
+                    <Box mt={2}>
+                      <FormControlLabel
+                        value={SEVERITY_LEVEL.LEVEL_2}
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label={SEVERITY_LEVEL.LEVEL_2}
+                      />
+                    </Box>
+                    <Box mt={2}>
+                      <FormControlLabel
+                        value={SEVERITY_LEVEL.LEVEL_3}
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label={SEVERITY_LEVEL.LEVEL_3}
+                      />
+                    </Box>
+                    <Box mt={2}>
+                      <FormControlLabel
+                        value={SEVERITY_LEVEL.LEVEL_4}
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label={SEVERITY_LEVEL.LEVEL_4}
+                      />
+                    </Box>
+                    <Box mt={2}>
+                      <FormControlLabel
+                        value={SEVERITY_LEVEL.LEVEL_5}
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label={SEVERITY_LEVEL.LEVEL_5}
+                      />
+                    </Box>
                   </RadioGroup>
                 )}
               />

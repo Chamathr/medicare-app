@@ -1,3 +1,4 @@
+import { SEVERITY_LEVEL } from "@/consts/report";
 import { IReport } from "@/store";
 
 const getScore = (data: IReport | undefined, stepData: any) => {
@@ -23,13 +24,15 @@ const getSeverityLevel = (severityLevel: string, score: number) => {
   if (severityLevel) {
     return severityLevel;
   } else if (score > 0 && score <= 10) {
-    return "No impairment";
+    return SEVERITY_LEVEL.LEVEL_1;
   } else if (score > 10 && score <= 20) {
-    return "Mild impairment";
+    return SEVERITY_LEVEL.LEVEL_2;
   } else if (score > 20 && score <= 30) {
-    return "Moderate impairment";
-  } else if (score > 30) {
-    return "Severe impairment";
+    return SEVERITY_LEVEL.LEVEL_3;
+  } else if (score > 30 && score <= 40) {
+    return SEVERITY_LEVEL.LEVEL_4;
+  } else if (score > 40) {
+    return SEVERITY_LEVEL.LEVEL_5;
   } else {
     return "";
   }
