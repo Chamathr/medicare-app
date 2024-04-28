@@ -205,7 +205,12 @@ const Stepper = () => {
             mt: 5,
           }}
         >
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", sm: "end" },
+            }}
+          >
             <Box sx={{ width: { sm: "50%" }, marginBottom: { xs: 3, sm: 0 } }}>
               <ScoreBar />
             </Box>
