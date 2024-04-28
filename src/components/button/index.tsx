@@ -25,6 +25,9 @@ export const MainButton = ({
       sx={{
         ...sx,
         background: "#fc7703",
+        "&:hover": {
+          bgcolor: "#ebd834",
+        },
       }}
     >
       {children}
