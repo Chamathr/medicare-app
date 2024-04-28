@@ -134,29 +134,6 @@ const FinalDataFormComponent = () => {
             border: "1px solid #fc7703",
           }}
         >
-          {/* <Box>
-            <Controller
-              name="severityLevel"
-              control={control}
-              render={({ field }) => (
-                <>
-                  <TextField
-                    {...field}
-                    id="severityLevel"
-                    label="Severity Level*"
-                    variant="outlined"
-                    error={!!errors.severityLevel}
-                    size="small"
-                  />
-                </>
-              )}
-            />
-            {errors.severityLevel && (
-              <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
-                {errors.severityLevel.message}
-              </Box>
-            )}
-          </Box> */}
            <Box>
             <FormControl component="fieldset">
               <FormLabel component="legend">Severity Level</FormLabel>

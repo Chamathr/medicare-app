@@ -9,6 +9,7 @@ import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import dayjs from "dayjs";
 import { useUserDataStore } from "@/store";
+import HomeIcon from "@mui/icons-material/Home";
 
 const DataTable = () => {
   const router = useRouter();
@@ -50,9 +51,17 @@ const DataTable = () => {
 
   return (
     <>
-      <Box>
+      <Box display={'flex'}>
         <Box
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
+          onClick={() => router.push("/")}
+        >
+          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
+            <HomeIcon />
+          </Avatar>
+        </Box>
+        <Box
+          sx={{ cursor: "pointer", display: "flex", justifyContent: "center", ml: 3 }}
           onClick={() => {
             reSetUserData();
             router.push("/users/add/child");
