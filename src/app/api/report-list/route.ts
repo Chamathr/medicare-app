@@ -7,9 +7,7 @@ import connectDB from "@/utils/connectDB";
  * @returns 
  */
 
-export const config = {
-  revalidate: 1,
-};
+export const revalidate = 1
 
 const GET = async (request: Request) => {
   try {
