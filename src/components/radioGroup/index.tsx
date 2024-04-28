@@ -40,14 +40,17 @@ const RowRadioButtonsGroup = (Props: Props) => {
     <>
       <Box
         sx={{
-          display: { sm: "flex" },
-          justifyContent: { sm: "space-between" },
+          display: { sm: "grid" },
+          gridTemplateColumns: { sm: '50% 50%' },
         }}
       >
         <Box sx={{ display: { sm: "flex" }, alignItems: { sm: "center" } }}>
           {label}
         </Box>
-        <Box>
+        <Box  sx={{
+          display: { sm: "flex" },
+          justifyContent: { sm: "end" },
+        }}>
           <Radio
             {...controlProps("1")}
             sx={{

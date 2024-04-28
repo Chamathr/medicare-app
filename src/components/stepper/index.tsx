@@ -13,9 +13,6 @@ import RowRadioButtonsGroup from "../radioGroup";
 import { useState } from "react";
 import { getScore } from "@/utils/report";
 import { useRouter } from "next/navigation";
-import { useMutation } from "react-query";
-import Loader from "../loader";
-import { addUserData } from "@/helpers/users";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
 import { SectionCard } from "../card";
@@ -24,8 +21,8 @@ import ScoreBar from "../scoreBar";
 const steps = [
   {
     id: 1,
-    label: "Step 1",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
+    label: "Light Gazing",
+    factors: ["Test value to test how behave when we have longer texts in scorng area", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
     description: `Description 1`,
     weight: 2,
   },
@@ -109,7 +106,7 @@ const Stepper = () => {
   };
 
   return (
-    <Box sx={{ minWidth: { xs: 300, sm: 500 }, flexGrow: 1 }}>
+    <Box sx={{ width: { xs: 300, sm: 500 }, flexGrow: 1 }}>
       <Box>
         <Box
           sx={{
