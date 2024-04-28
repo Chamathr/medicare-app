@@ -8,6 +8,7 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  Switch,
   TextField,
   Typography,
 } from "@mui/material";
@@ -20,6 +21,7 @@ import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { useMutation } from "react-query";
 import { addUserData } from "@/helpers/users";
 import Loader from "../loader";
+import { getSeverityLevel } from "@/utils/report";
 
 interface FormData {
   severityLevel: string;
@@ -43,13 +45,15 @@ const FinalDataFormComponent = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
   const severityLevel = userData?.severityLevel as string;
+  const score = userData?.score as number;
 
   const defaultValues = useMemo(() => {
     return {
-      severityLevel: userData?.severityLevel || "",
+      severityLevel: getSeverityLevel(severityLevel, score),
     };
-  }, [severityLevel]);
+  }, [severityLevel, score]);
 
+  console.log("defaultValues", defaultValues);
   const {
     handleSubmit,
     control,
@@ -113,7 +117,7 @@ const FinalDataFormComponent = () => {
           }}
         >
           <Typography textTransform="uppercase" variant="h6">
-            Final Assessment
+            Severity Level
           </Typography>
         </SectionCard>
         {userData?.score ? (
@@ -146,7 +150,6 @@ const FinalDataFormComponent = () => {
         >
           <Box>
             <FormControl component="fieldset">
-              <FormLabel component="legend">Severity Level</FormLabel>
               <Controller
                 name="severityLevel"
                 control={control}

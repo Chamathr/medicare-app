@@ -29,7 +29,7 @@ const steps = [
       "Can be distracted by light, But looks well without light",
       "Looks well, Not distracted by light",
     ],
-    weight: 2,
+    weight: 8,
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const steps = [
       "More colours, familiar patterns regarded, but not all colours",
       "No colours or patterns preference",
     ],
-    weight: 1,
+    weight: 7,
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const steps = [
       "Movement is not required for attention within 3 to 4 feet but needed beyond this. Not distracted in near spaces by environmental movements",
       "Movement not necessary for near or distant vision, typical response to moving targets",
     ],
-    weight: 2,
+    weight: 6,
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ const steps = [
       "Increasing use of right and left fields for near and distant activities ( preference not always seen even in distant vision)",
       "Visual fields unrestricted",
     ],
-    weight: 1,
+    weight: 6,
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ const steps = [
       "Visual attention extends to 10 feet with targets that produce movement ( not to all objects)",
       "Visual attention extends beyond 20 feet",
     ],
-    weight: 1,
+    weight: 9,
   },
   {
     id: 6,
@@ -89,7 +89,7 @@ const steps = [
       "Visual threat inconsistent, touch consistent",
       "Visual reflexes always present",
     ],
-    weight: 1,
+    weight: 4,
   },
   {
     id: 7,
@@ -101,7 +101,7 @@ const steps = [
       "Latency is rarely present",
       "No delay ( latency resolved)",
     ],
-    weight: 1,
+    weight: 8,
   },
 ];
 
@@ -187,7 +187,7 @@ const Stepper = () => {
           mt: 3,
         }}
       >
-        <Typography variant="h6">{steps[activeStep].label}</Typography>
+        <Typography textTransform="uppercase" variant="h6">{steps[activeStep].label}</Typography>
       </SectionCard>
       <Box
         sx={{
@@ -204,7 +204,7 @@ const Stepper = () => {
           }}
         >
           <Box sx={{ display: "flex", justifyContent: "end" }}>
-            <Box sx={{ width: { sm: "50%" } }}>
+            <Box sx={{ width: { sm: "50%" }, marginBottom: { xs: 3, sm: 0 } }}>
               <ScoreBar />
             </Box>
           </Box>

@@ -44,7 +44,7 @@ const RowRadioButtonsGroup = (Props: Props) => {
           gridTemplateColumns: { sm: '50% 50%' },
         }}
       >
-        <Box sx={{ display: { sm: "flex" }, alignItems: { sm: "center" } }}>
+        <Box sx={{ display: { sm: "flex" }, alignItems: { sm: "center" }, color: '#00000099', fontWeight: 500, fontSize: 14 }}>
           {label}
         </Box>
         <Box  sx={{

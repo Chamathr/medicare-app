@@ -19,4 +19,20 @@ const getScore = (data: IReport | undefined, stepData: any) => {
   return 0;
 };
 
-export { getScore };
+const getSeverityLevel = (severityLevel: string, score: number) => {
+  if (severityLevel) {
+    return severityLevel;
+  } else if (score > 0 && score <= 10) {
+    return "No impairment";
+  } else if (score > 10 && score <= 20) {
+    return "Mild impairment";
+  } else if (score > 20 && score <= 30) {
+    return "Moderate impairment";
+  } else if (score > 30) {
+    return "Severe impairment";
+  } else {
+    return "";
+  }
+};
+
+export { getScore, getSeverityLevel };
