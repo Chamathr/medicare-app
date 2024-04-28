@@ -10,12 +10,12 @@ const addUserData = async (data: string) => {
 };
 
 const fetchUserData = async (id: string) => {
-  const response = await fetch(`/api/report/${id}`, { cache: "no-store" });
+  const response = await fetch(`/api/report/${id}`);
   return response.json();
 };
 
 const fetchUserList = async () => {
-  const response = await fetch("api/report-list", { cache: "no-store" });
+  const response = await fetch("api/report-list");
   return response.json();
 };
 

@@ -5,6 +5,8 @@ import {
 } from "@/server/services/report.service";
 import connectDB from "@/utils/connectDB";
 
+export const revalidate = 1
+
 /**
  * upadte a report reports
  * @param request

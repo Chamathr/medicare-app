@@ -1,11 +1,14 @@
 import { getReportList } from "@/server/services/report.service";
 import connectDB from "@/utils/connectDB";
 
+export const revalidate = 1
+
 /**
  * get report list
  * @param request 
  * @returns 
  */
+
 const GET = async (request: Request) => {
   try {
     await connectDB();
