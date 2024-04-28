@@ -139,6 +139,9 @@ const ChildDataFormComponent = () => {
                   label="Date of Birth*"
                   value={date}
                   onChange={(newValue: any) => setDate(newValue)}
+                  sx={{
+                    width: { sm: 370 },
+                  }}
                 />
               </DemoContainer>
             </LocalizationProvider>
