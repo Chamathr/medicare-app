@@ -25,7 +25,6 @@ const ProfileCard = (data: any) => {
           flexDirection: "column",
           gap: 3,
           mt: 3,
-          width: { xs: 300, sm: 400 },
         }}
       >
         <SectionCard sx={{ pt: 5, pb: 5, pl: 5, pr: 5 }}>

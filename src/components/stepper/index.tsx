@@ -162,7 +162,7 @@ const Stepper = () => {
   };
 
   return (
-    <Box sx={{ width: { xs: 300, sm: 500 }, flexGrow: 1 }}>
+    <Box>
       <Box>
         <Box
           sx={{
@@ -187,7 +187,9 @@ const Stepper = () => {
           mt: 3,
         }}
       >
-        <Typography textTransform="uppercase" variant="h6">{steps[activeStep].label}</Typography>
+        <Typography textTransform="uppercase" variant="h6">
+          {steps[activeStep].label}
+        </Typography>
       </SectionCard>
       <Box
         sx={{
@@ -217,13 +219,12 @@ const Stepper = () => {
                     handleSelect={(data) =>
                       setScoreData({
                         ...scoreData,
-                        [(key + 1).toString()]: parseInt(data) / 2,
+                        [(key + 1).toString()]: parseInt(data),
                       })
                     }
-                    radioValue={(
-                      reportData?.[steps[activeStep].id.toString()]?.[key + 1] *
-                      2
-                    )?.toString()}
+                    radioValue={reportData?.[steps[activeStep].id.toString()]?.[
+                      key + 1
+                    ]?.toString()}
                     userData={userData}
                   />
                 </Box>

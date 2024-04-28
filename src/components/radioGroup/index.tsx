@@ -60,14 +60,6 @@ const RowRadioButtonsGroup = (Props: Props) => {
             }}
           />
           <Radio
-            {...controlProps("2")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
             {...controlProps("3")}
             sx={{
               "&.Mui-checked": {
@@ -76,7 +68,7 @@ const RowRadioButtonsGroup = (Props: Props) => {
             }}
           />
           <Radio
-            {...controlProps("4")}
+            {...controlProps("5")}
             sx={{
               "&.Mui-checked": {
                 color: "#fc7703",
@@ -84,7 +76,15 @@ const RowRadioButtonsGroup = (Props: Props) => {
             }}
           />
           <Radio
-            {...controlProps("5")}
+            {...controlProps("7")}
+            sx={{
+              "&.Mui-checked": {
+                color: "#fc7703",
+              },
+            }}
+          />
+          <Radio
+            {...controlProps("9")}
             sx={{
               "&.Mui-checked": {
                 color: "#fc7703",

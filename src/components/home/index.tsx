@@ -35,7 +35,6 @@ const HomeComponent = () => {
           justifyContent: "center",
           height: 500,
           mt: 3,
-          width: { xs: 300, sm: 500 },
         }}
       >
         <Grid
