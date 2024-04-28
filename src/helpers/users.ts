@@ -14,9 +14,16 @@ const fetchUserData = async (id: string) => {
   return response.json();
 };
 
+const deleteUserData = async (id: string) => {
+  const response = await fetch(`/api/report/${id}`, {
+    method: "DELETE",
+  });
+  return response.json();
+};
+
 const fetchUserList = async () => {
   const response = await fetch("api/report-list");
   return response.json();
 };
 
-export { addUserData, fetchUserData, fetchUserList };
+export { addUserData, fetchUserData, fetchUserList, deleteUserData };
