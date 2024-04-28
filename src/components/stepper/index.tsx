@@ -131,7 +131,7 @@ const Stepper = () => {
           mt: 3,
         }}
       >
-        <Typography>{steps[activeStep].label}</Typography>
+        <Typography variant="h6">{steps[activeStep].label}</Typography>
       </SectionCard>
       <Box
         sx={{
