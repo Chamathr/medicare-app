@@ -11,7 +11,7 @@ import { IReport, IUser, useUserDataStore } from "@/store";
 import { Avatar } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useState } from "react";
-import { getScore, getScoreValue } from "@/utils/report";
+import { getScore, getScoreKey, getScoreValue } from "@/utils/report";
 import { useRouter } from "next/navigation";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
@@ -109,49 +109,29 @@ const Stepper = () => {
 
   const { userData, setUserData } = useUserDataStore();
 
-  const reportData = userData?.report as IReport;
+  const reportData = userData?.report as any;
   const userDetails = userData?.user as IUser;
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
-  const [scoreData, setScoreData] = useState(
-    reportData?.[steps[activeStep].id.toString()] ?? {}
-  );
 
   const maxSteps = steps.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setUserData({
-      user: userDetails,
-      report: {
-        ...reportData,
-        [steps[activeStep].id.toString()]: scoreData,
-      },
-      riskFactors: userData?.riskFactors,
-      score: userData?.score,
-      severityLevel: userData?.severityLevel,
-    });
-    setScoreData(reportData?.[steps[activeStep + 1].id.toString()] ?? {});
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    setScoreData(reportData?.[steps[activeStep - 1].id.toString()] ?? {});
   };
 
   const handleSubmit = async () => {
     try {
-      const report = {
-        ...userData?.report,
-        [steps[activeStep].id.toString()]: scoreData,
-      };
-
       setUserData({
-        report: report,
+        report: userData?.report,
         riskFactors: userData?.riskFactors,
         user: userData?.user,
-        score: getScore(report, steps),
+        score: getScore(userData?.report, steps),
         severityLevel: userData?.severityLevel,
       });
       router.push("/users/add/final");
@@ -218,14 +198,24 @@ const Stepper = () => {
                     index={key}
                     label={item}
                     handleSelect={(data) =>
-                      setScoreData({
-                        ...scoreData,
-                        [(key + 1).toString()]:
-                          parseInt(data) * getScoreValue(key),
+                      setUserData({
+                        user: userDetails,
+                        report: {
+                          ...reportData,
+                          [steps[activeStep].id.toString()]:
+                            parseInt(data) * getScoreValue(key),
+                        },
+                        riskFactors: userData?.riskFactors,
+                        score: userData?.score,
+                        severityLevel: userData?.severityLevel,
                       })
                     }
                     radioValue={
-                      reportData?.[steps[activeStep].id.toString()]?.[key + 1]
+                      typeof reportData?.[steps[activeStep].id.toString()] ===
+                        "number" &&
+                      getScoreKey(
+                        reportData?.[steps[activeStep].id.toString()]
+                      ) === key
                         ? "1"
                         : ""
                     }

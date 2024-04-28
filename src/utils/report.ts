@@ -4,17 +4,11 @@ import { IReport } from "@/store";
 const getScore = (data: IReport | undefined, stepData: any) => {
   if (data) {
     let totalWeight = 0;
-    const total = Object.keys(data).reduce((acc, key) => {
-      const innerObject = data[key];
-      const innerTotal = Object.keys(innerObject).reduce(
-        (innerAcc, innerKey) => {
-          return innerAcc + innerObject[innerKey];
-        },
-        0
-      );
-      totalWeight += stepData[parseInt(key) - 1]?.weight;
-      return acc + innerTotal * stepData[parseInt(key) - 1]?.weight;
-    }, 0);
+    let total = 0;
+    Object.values(data)?.map((item, index) => {
+      totalWeight += stepData[index]?.weight;
+      total += item * stepData[index]?.weight;
+    });
     return parseFloat((total / totalWeight)?.toFixed(1));
   }
   return 0;
@@ -53,4 +47,21 @@ const getScoreValue = (key: number) => {
   }
 };
 
-export { getScore, getScoreValue, getSeverityLevel };
+const getScoreKey = (value: number) => {
+  switch (value) {
+    case SCORES.SCORE_1:
+      return 0;
+    case SCORES.SCORE_2:
+      return 1;
+    case SCORES.SCORE_3:
+      return 2;
+    case SCORES.SCORE_4:
+      return 3;
+    case SCORES.SCORE_5:
+      return 4;
+    default:
+      return 0;
+  }
+};
+
+export { getScore, getScoreValue, getSeverityLevel, getScoreKey };
