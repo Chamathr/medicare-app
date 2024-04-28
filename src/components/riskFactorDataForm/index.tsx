@@ -103,44 +103,47 @@ const RiskFactorDataFormComponent = () => {
           <Box>
             <FormControl component="fieldset">
               <FormLabel component="legend">Premature birth?</FormLabel>
-              <Controller
-                defaultValue={undefined}
-                name="prematureBirth"
-                control={control}
-                render={({ field }) => (
-                  <RadioGroup
-                    {...field}
-                    sx={{ display: "flex", flexDirection: "row" }}
-                  >
-                    <FormControlLabel
-                      value="true"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#fc7703",
-                            },
-                          }}
-                        />
-                      }
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="false"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#fc7703",
-                            },
-                          }}
-                        />
-                      }
-                      label="No"
-                    />
-                  </RadioGroup>
-                )}
-              />
+              <Box sx={{
+                display: 'flex'
+              }}>
+                <Controller
+                  name="prematureBirth"
+                  control={control}
+                  render={({ field }) => (
+                    <RadioGroup
+                      {...field}
+                      sx={{ display: "flex", flexDirection: "column" }}
+                    >
+                      <FormControlLabel
+                        value="true"
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label="Yes"
+                      />
+                      <FormControlLabel
+                        value="false"
+                        control={
+                          <Radio
+                            sx={{
+                              "&.Mui-checked": {
+                                color: "#fc7703",
+                              },
+                            }}
+                          />
+                        }
+                        label="No"
+                      />
+                    </RadioGroup>
+                  )}
+                />
+              </Box>
             </FormControl>
           </Box>
           <Box>
@@ -152,7 +155,7 @@ const RiskFactorDataFormComponent = () => {
                 render={({ field }) => (
                   <RadioGroup
                     {...field}
-                    sx={{ display: "flex", flexDirection: "row" }}
+                    sx={{ display: "flex", flexDirection: "column" }}
                   >
                     <FormControlLabel
                       value="true"
@@ -194,7 +197,7 @@ const RiskFactorDataFormComponent = () => {
                 render={({ field }) => (
                   <RadioGroup
                     {...field}
-                    sx={{ display: "flex", flexDirection: "row" }}
+                    sx={{ display: "flex", flexDirection: "column" }}
                   >
                     <FormControlLabel
                       value="true"
@@ -236,7 +239,7 @@ const RiskFactorDataFormComponent = () => {
                 render={({ field }) => (
                   <RadioGroup
                     {...field}
-                    sx={{ display: "flex", flexDirection: "row" }}
+                    sx={{ display: "flex", flexDirection: "column" }}
                   >
                     <FormControlLabel
                       value="true"
