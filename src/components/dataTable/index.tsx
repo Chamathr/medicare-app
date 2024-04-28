@@ -84,12 +84,12 @@ const DataTable = () => {
         <>
           <Box sx={{ display: "flex" }}>
             <Button onClick={() => router.push(`/users/${record._id}`)}>
-              <Avatar sx={{ bgcolor: "#fc7703", zoom: 0.8 }} variant="rounded">
+              <Avatar sx={{ bgcolor: "#ffcc00", zoom: 0.8 }} variant="rounded">
                 <AssignmentIndIcon />
               </Avatar>
             </Button>
             <Button onClick={() => handleDelete(record._id)} sx={{ ml: -3 }}>
-              <Avatar sx={{ bgcolor: "#fc7703", zoom: 0.8 }} variant="rounded">
+              <Avatar sx={{ bgcolor: "#ffcc00", zoom: 0.8 }} variant="rounded">
                 <DeleteIcon />
               </Avatar>
             </Button>
@@ -106,7 +106,7 @@ const DataTable = () => {
           sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}
           onClick={() => router.push("/")}
         >
-          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#ffcc00" }} variant="rounded">
             <HomeIcon />
           </Avatar>
         </Box>
@@ -122,7 +122,7 @@ const DataTable = () => {
             router.push("/users/add/child");
           }}
         >
-          <Avatar sx={{ bgcolor: "#fc7703" }} variant="rounded">
+          <Avatar sx={{ bgcolor: "#ffcc00" }} variant="rounded">
             <CreateNewFolderIcon />
           </Avatar>
         </Box>
@@ -133,7 +133,7 @@ const DataTable = () => {
           dataSource={dataList?.data}
           pagination={false}
           style={{
-            border: "1px solid #fc7703",
+            border: "1px solid #ffcc00",
             borderRadius: "5px",
           }}
         />

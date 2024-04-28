@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 const Loader = () => {
   return (
     <Box sx={{ display: "flex" }}>
-      <CircularProgress sx={{ color: "#fc7703" }} />
+      <CircularProgress sx={{ color: "#ffcc00" }} />
     </Box>
   );
 };

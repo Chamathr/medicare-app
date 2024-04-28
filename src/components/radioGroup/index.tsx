@@ -52,7 +52,7 @@ const RowRadioButtonsGroup = (Props: Props) => {
               alignItems: { sm: "center" },
             }}
           >
-            <Avatar sx={{ bgcolor: "#fc7703", zoom: 0.6 }} variant="circular">
+            <Avatar sx={{ bgcolor: "#ffcc00", zoom: 0.6 }} variant="circular">
               {getScoreValue(index)}
             </Avatar>
           </Box>
@@ -80,7 +80,7 @@ const RowRadioButtonsGroup = (Props: Props) => {
             {...controlProps("1")}
             sx={{
               "&.Mui-checked": {
-                color: "#fc7703",
+                color: "#ffcc00",
               },
             }}
           />
