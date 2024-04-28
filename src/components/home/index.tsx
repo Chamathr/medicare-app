@@ -35,8 +35,7 @@ const HomeComponent = () => {
           justifyContent: "center",
           height: 500,
           mt: 3,
-          backgroundImage:
-            'url("https://as1.ftcdn.net/v2/jpg/04/83/41/64/1000_F_483416423_KxwEie9pz03p3PLLwu0I5yd4mj7dX4iP.jpg")',
+          backgroundImage: `url(/backgroundImage.jpg)`,
         }}
       >
         <Grid
