@@ -321,7 +321,7 @@ const ProfileCard = (data: any) => {
             justifyContent: "center",
             minHeight: 50,
             mt: 3,
-            p: 2
+            p: 2,
           }}
         >
           <Typography textTransform="uppercase" variant="h6">
