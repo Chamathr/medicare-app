@@ -6,9 +6,6 @@ import connectDB from "@/utils/connectDB";
  * @param request 
  * @returns 
  */
-
-export const revalidate = 1
-
 const GET = async (request: Request) => {
   try {
     await connectDB();
