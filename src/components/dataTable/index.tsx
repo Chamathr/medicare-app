@@ -19,7 +19,10 @@ const DataTable = () => {
     data: dataList,
     isLoading,
     error,
-  } = useQuery("user-list", fetchUserList);
+  } = useQuery("user-list", fetchUserList, {
+    cacheTime: 0,
+    staleTime: 0,
+  });
 
   if (isLoading)
     return (
