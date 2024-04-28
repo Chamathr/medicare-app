@@ -3,23 +3,21 @@ import connectDB from "@/utils/connectDB";
 
 /**
  * get report list
- * @param request
- * @returns
+ * @param request 
+ * @returns 
  */
+
+export const config = {
+  revalidate: 1,
+};
+
 const GET = async (request: Request) => {
   try {
     await connectDB();
 
     const response = await getReportList();
 
-    return Response.json({
-      data: response,
-      headers: {
-        "Cache-Control": "public, s-maxage=1",
-        "CDN-Cache-Control": "public, s-maxage=1",
-        "Vercel-CDN-Cache-Control": "public, s-maxage=1",
-      },
-    });
+    return Response.json({ data: response });
   } catch (error) {
     console.log("Error", error);
     return Response.error();
