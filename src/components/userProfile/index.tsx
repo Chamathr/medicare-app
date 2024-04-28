@@ -44,6 +44,7 @@ const ProfileCard = (data: any) => {
                 Name
               </Typography>
               <Typography
+                textTransform="capitalize"
                 color="text.secondary"
                 gutterBottom
                 sx={{
@@ -52,7 +53,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.childName}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.childName}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -65,6 +68,7 @@ const ProfileCard = (data: any) => {
                 Date Of Birth
               </Typography>
               <Typography
+                textTransform="capitalize"
                 color="text.secondary"
                 gutterBottom
                 sx={{
@@ -73,7 +77,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {dayjs(data?.userData?.childDateOfBirth).format("DD-MM-YYYY")}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {dayjs(data?.userData?.childDateOfBirth).format("DD-MM-YYYY")}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -86,6 +92,7 @@ const ProfileCard = (data: any) => {
                 Gender
               </Typography>
               <Typography
+                textTransform="capitalize"
                 color="text.secondary"
                 gutterBottom
                 sx={{
@@ -94,7 +101,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.childGender}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.childGender}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -108,6 +117,7 @@ const ProfileCard = (data: any) => {
                 Birth Certificate Number
               </Typography>
               <Typography
+                textTransform="capitalize"
                 color="text.secondary"
                 gutterBottom
                 sx={{
@@ -116,7 +126,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.childBirthCertificate}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.childBirthCertificate}
+                </Box>
               </Typography>
             </Box>
           </Grid>
@@ -128,36 +140,98 @@ const ProfileCard = (data: any) => {
                 GUARDIAN DETAILS
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Name
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
-                {data?.userData?.guardianName}
+              <Typography
+                textTransform="capitalize"
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.guardianName}
+                </Box>
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Address
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
-                {data?.userData?.guardianAddress}
+              <Typography
+                textTransform="capitalize"
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.guardianAddress}
+                </Box>
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Email
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
-                {data?.userData?.guardianEmail}
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.guardianEmail}
+                </Box>
               </Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
               <Typography color="text.secondary" gutterBottom>
                 Contact Number
               </Typography>
-              <Typography color="text.secondary" gutterBottom>
-                {data?.userData?.guardianPhone}
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.guardianPhone}
+                </Box>
               </Typography>
             </Box>
           </Grid>
@@ -188,7 +262,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.riskFactors?.prematureBirth ? "YES" : "NO"}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.prematureBirth ? "YES" : "NO"}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -210,7 +286,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.riskFactors?.lowBirthWeight ? "YES" : "NO"}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.lowBirthWeight ? "YES" : "NO"}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -232,7 +310,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.riskFactors?.neonatalICUStay ? "YES" : "NO"}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.neonatalICUStay ? "YES" : "NO"}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -254,7 +334,11 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.riskFactors?.historyOfSeizures ? "YES" : "NO"}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.historyOfSeizures
+                    ? "YES"
+                    : "NO"}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -267,6 +351,7 @@ const ProfileCard = (data: any) => {
                 Neurological Conditions
               </Typography>
               <Typography
+                textTransform="capitalize"
                 color="text.secondary"
                 gutterBottom
                 sx={{
@@ -275,7 +360,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.riskFactors?.neurologicalConditions}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.neurologicalConditions}
+                </Box>
               </Typography>
             </Box>
             <Box
@@ -288,6 +375,7 @@ const ProfileCard = (data: any) => {
                 Neurological Conditions Of Family
               </Typography>
               <Typography
+                textTransform="capitalize"
                 color="text.secondary"
                 gutterBottom
                 sx={{
@@ -296,7 +384,9 @@ const ProfileCard = (data: any) => {
                   textAlign: "end",
                 }}
               >
-                {data?.userData?.riskFactors?.neurologicalConditionsFamily}
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.neurologicalConditionsFamily}
+                </Box>
               </Typography>
             </Box>
           </Grid>
