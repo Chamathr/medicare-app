@@ -198,7 +198,6 @@ const Stepper = () => {
       >
         <SectionCard
           sx={{
-            minWidth: { xs: 300, sm: 500 },
             width: "100%",
             p: 4,
             mt: 5,

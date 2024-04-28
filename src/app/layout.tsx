@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import ReactQueryWrapper from "../components/reactQueryWrapper";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Box } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +22,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header/>
+        <Header />
         <main className={styles.main}>
           <ReactQueryWrapper>
-            {children}
+            <Box
+              sx={{
+                minWidth: { xs: 300, sm: 500 },
+              }}
+            >
+              {children}
+            </Box>
           </ReactQueryWrapper>
         </main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 import ChldDataFormComponent from "../../../../components/childDataForm";
 
-const ChildForm: React.FC = () => {
+const ChildForm = () => {
 
   return (
     <>

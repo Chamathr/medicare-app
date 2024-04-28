@@ -121,6 +121,7 @@ const ChildDataFormComponent = () => {
                     variant="outlined"
                     error={!!errors.childName}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}
@@ -131,7 +132,7 @@ const ChildDataFormComponent = () => {
               </Box>
             )}
           </Box>
-          <Box sx={{ maxWidth: "220px" }}>
+          <Box>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DatePicker", "DatePicker"]}>
                 <DatePicker
@@ -172,6 +173,7 @@ const ChildDataFormComponent = () => {
                     variant="outlined"
                     error={!!errors.childBirthCertificate}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}

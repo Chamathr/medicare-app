@@ -64,9 +64,10 @@ const HomeComponent = () => {
               onClick={() => router.push("/users")}
               sx={{
                 mt: 5,
+                fontSize: 20
               }}
             >
-              LETS GO
+              LETS START
             </MainButton>
           </Box>
         </Grid>

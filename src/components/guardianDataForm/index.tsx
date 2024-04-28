@@ -15,7 +15,7 @@ interface FormData {
   guardianPhone: string;
 }
 
-const GuardianDataFormComponent: React.FC = () => {
+const GuardianDataFormComponent = () => {
   const router = useRouter();
   const { userData, setUserData } = useUserDataStore();
   const userDetails = userData?.user as IUser;
@@ -105,6 +105,7 @@ const GuardianDataFormComponent: React.FC = () => {
                     variant="outlined"
                     error={!!errors.guardianName}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}
@@ -129,6 +130,7 @@ const GuardianDataFormComponent: React.FC = () => {
                     variant="outlined"
                     error={!!errors.guardianAddress}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}
@@ -154,6 +156,7 @@ const GuardianDataFormComponent: React.FC = () => {
                     error={!!errors.guardianEmail}
                     size="small"
                     type="email"
+                    fullWidth
                   />
                 </>
               )}
@@ -178,6 +181,7 @@ const GuardianDataFormComponent: React.FC = () => {
                     variant="outlined"
                     error={!!errors.guardianPhone}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}

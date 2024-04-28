@@ -282,6 +282,7 @@ const RiskFactorDataFormComponent = () => {
                     variant="outlined"
                     error={!!errors.neurologicalConditions}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}
@@ -305,6 +306,7 @@ const RiskFactorDataFormComponent = () => {
                     variant="outlined"
                     error={!!errors.neurologicalConditionsFamily}
                     size="small"
+                    fullWidth
                   />
                 </>
               )}

@@ -1,6 +1,6 @@
 import GuardianDataFormComponent from "@/components/guardianDataForm";
 
-const GuardianForm: React.FC = () => {
+const GuardianForm = () => {
   return (
     <>
       <GuardianDataFormComponent />
