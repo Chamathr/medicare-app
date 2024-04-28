@@ -52,7 +52,7 @@ const RowRadioButtonsGroup = (Props: Props) => {
               alignItems: { sm: "center" },
             }}
           >
-            <Avatar sx={{ bgcolor: "#fc7703", zoom: 0.6 }} variant="rounded">
+            <Avatar sx={{ bgcolor: "#fc7703", zoom: 0.6 }} variant="circular">
               {getScoreValue(index)}
             </Avatar>
           </Box>
