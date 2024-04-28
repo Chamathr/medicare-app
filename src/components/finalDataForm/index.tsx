@@ -1,6 +1,16 @@
 "use client";
 import React, { useMemo } from "react";
-import { Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { useUserDataStore } from "@/store";
 import { useRouter } from "next/navigation";
@@ -134,16 +144,14 @@ const FinalDataFormComponent = () => {
             border: "1px solid #fc7703",
           }}
         >
-           <Box>
+          <Box>
             <FormControl component="fieldset">
               <FormLabel component="legend">Severity Level</FormLabel>
               <Controller
                 name="severityLevel"
                 control={control}
                 render={({ field }) => (
-                  <RadioGroup
-                    {...field}
-                  >
+                  <RadioGroup {...field}>
                     <FormControlLabel
                       value="No impairment"
                       control={
@@ -207,7 +215,12 @@ const FinalDataFormComponent = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#fc7703" }}
+          sx={{
+            background: "#fc7703",
+            "&:hover": {
+              bgcolor: "#ebd834",
+            },
+          }}
         >
           SUBMIT
         </Button>

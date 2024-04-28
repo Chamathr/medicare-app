@@ -49,7 +49,7 @@ const GuardianDataFormComponent: React.FC = () => {
         ...data,
       },
       score: userData?.score,
-      severityLevel: userData?.severityLevel
+      severityLevel: userData?.severityLevel,
     });
     router.push("/users/add/risk-factors");
   };
@@ -74,7 +74,9 @@ const GuardianDataFormComponent: React.FC = () => {
             mt: 3,
           }}
         >
-          <Typography textTransform="uppercase" variant="h6">Guardian Data</Typography>
+          <Typography textTransform="uppercase" variant="h6">
+            Guardian Data
+          </Typography>
         </SectionCard>
         <SectionCard
           sx={{
@@ -192,7 +194,12 @@ const GuardianDataFormComponent: React.FC = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#fc7703" }}
+          sx={{
+            background: "#fc7703",
+            "&:hover": {
+              bgcolor: "#ebd834",
+            },
+          }}
         >
           Next
         </Button>

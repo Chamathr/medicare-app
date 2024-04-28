@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { IReport, IUser, useUserDataStore } from "@/store";
-import { Avatar, Card } from "@mui/material";
+import { Avatar } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useState } from "react";
 import { getScore } from "@/utils/report";
@@ -22,29 +22,85 @@ const steps = [
   {
     id: 1,
     label: "Light Gazing",
-    factors: ["Test value to test how behave when we have longer texts in scorng area", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 1`,
+    factors: [
+      "Non purposeful gaze,photophobia, no visual fixing to light, no fixation on anything",
+      "Look at object when illuminated only",
+      "Prefer illuminated object, But can look at other objects (Non illuminated)",
+      "Can be distracted by light, But looks well without light",
+      "Looks well, Not distracted by light",
+    ],
     weight: 2,
   },
   {
     id: 2,
-    label: "Step 2",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 2`,
+    label: "Colour Preference",
+    factors: [
+      "Attends only in near spaces to a single colour -  visual  attention not good enough to a identify a favourite colour",
+      "Strong single colour Preference 'Favourite Colour'",
+      "Can identify objects, environments with 2,3 colours (within 4-6 field) 2 or 3 favourite colours",
+      "More colours, familiar patterns regarded, but not all colours",
+      "No colours or patterns preference",
+    ],
     weight: 1,
   },
   {
     id: 3,
-    label: "Step 3",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 3`,
+    label: "Need For Movement",
+    factors: [
+      "Attends only targets with movement and or reflective properties. ( May attentive to ceiling fan)",
+      "Movement needed to establish attention on target/ destination but not needed for continuation",
+      "Distract from target when movement in environment, movements not necessary to initiate looking",
+      "Movement is not required for attention within 3 to 4 feet but needed beyond this. Not distracted in near spaces by environmental movements",
+      "Movement not necessary for near or distant vision, typical response to moving targets",
+    ],
     weight: 2,
   },
   {
     id: 4,
-    label: "Step 4",
-    factors: ["Fact 1", "Fact 2", "Fact 3", "Fact 4", "Fact 5"],
-    description: `Description 4`,
+    label: "Visual Field Preference",
+    factors: [
+      "Distinct field preference,( one eye for peripheral and other I for Central vision)",
+      "Yours both right and left peripheral fields. But will continue to show strong preference for original peripheral field",
+      "Visual field preference not seen in familiar inputs with near activities",
+      "Increasing use of right and left fields for near and distant activities ( preference not always seen even in distant vision)",
+      "Visual fields unrestricted",
+    ],
+    weight: 1,
+  },
+  {
+    id: 5,
+    label: "Difficulty With Distance Viewing",
+    factors: [
+      "Attends near space only less than 2 feet",
+      "Occasional visual attention to familiar, moving or large targets at 2 to 4 feet",
+      "Visual attention extends beyond near space up to 4-6 feet",
+      "Visual attention extends to 10 feet with targets that produce movement ( not to all objects)",
+      "Visual attention extends beyond 20 feet",
+    ],
+    weight: 1,
+  },
+  {
+    id: 6,
+    label: "Visual Reflective Response",
+    factors: [
+      "No blink in response to touch and no visual threat response",
+      "Blink in response to touch, but response may be latent ( not immediate). No threat response",
+      "Blink in response to touch inconsistently present, intermittent visual threat response",
+      "Visual threat inconsistent, touch consistent",
+      "Visual reflexes always present",
+    ],
+    weight: 1,
+  },
+  {
+    id: 7,
+    label: "Visual Latency",
+    factors: [
+      "Prolonged periods of visual latency ( delay to initiate). Than 15 seconds",
+      "Decrease in latency after periods of consistent viewing",
+      "Latency present only when the baby is tired, stressed over overstimulated",
+      "Latency is rarely present",
+      "No delay ( latency resolved)",
+    ],
     weight: 1,
   },
 ];
@@ -125,7 +181,7 @@ const Stepper = () => {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: 'center',
+          justifyContent: "center",
           height: 50,
           pl: 2,
           mt: 3,

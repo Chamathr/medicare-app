@@ -321,7 +321,12 @@ const RiskFactorDataFormComponent = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ background: "#fc7703" }}
+          sx={{
+            background: "#fc7703",
+            "&:hover": {
+              bgcolor: "#ebd834",
+            },
+          }}
         >
           Next
         </Button>
