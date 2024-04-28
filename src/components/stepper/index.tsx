@@ -191,7 +191,6 @@ const Stepper = () => {
       </SectionCard>
       <Box
         sx={{
-          minHeight: 500,
           display: "flex",
           flexDirection: "column",
           height: "100%",
@@ -234,71 +233,81 @@ const Stepper = () => {
           })}
         </SectionCard>
       </Box>
-      <MobileStepper
+      <Box
         sx={{
-          width: "100%",
-          borderRadius: "5px",
-          bgcolor: "rgba(255, 255, 255, 0.5)",
-          boxShadow: "none",
-          border: "1px solid #fc7703",
-          color: "#fc7703",
+          mt: 3,
         }}
-        variant="text"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            sx={{
-              color: "#fc7703",
-              fontWeight: 700,
-            }}
-            disabled={activeStep === maxSteps - 1}
-          >
-            Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button
-            size="small"
-            onClick={handleBack}
-            sx={{
-              color: "#fc7703",
-              fontWeight: 700,
-            }}
-            disabled={activeStep === 0}
-          >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-      {activeStep === maxSteps - 1 && (
-        <Box
+      >
+        <MobileStepper
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            width: "30%",
-            margin: "auto",
-            pt: 3,
+            width: "100%",
+            borderRadius: "5px",
+            bgcolor: "rgba(255, 255, 255, 0.5)",
+            boxShadow: "none",
+            border: "1px solid #fc7703",
+            color: "#fc7703",
           }}
-        >
-          <MainButton type="submit" variant="contained" onClick={handleSubmit}>
-            NEXT
-          </MainButton>
-        </Box>
-      )}
+          variant="text"
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          nextButton={
+            <Button
+              size="small"
+              onClick={handleNext}
+              sx={{
+                color: "#fc7703",
+                fontWeight: 700,
+              }}
+              disabled={activeStep === maxSteps - 1}
+            >
+              Next
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button
+              size="small"
+              onClick={handleBack}
+              sx={{
+                color: "#fc7703",
+                fontWeight: 700,
+              }}
+              disabled={activeStep === 0}
+            >
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+              Back
+            </Button>
+          }
+        />
+        {activeStep === maxSteps - 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "30%",
+              margin: "auto",
+              pt: 3,
+            }}
+          >
+            <MainButton
+              type="submit"
+              variant="contained"
+              onClick={handleSubmit}
+            >
+              NEXT
+            </MainButton>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };
