@@ -41,7 +41,7 @@ const RowRadioButtonsGroup = (Props: Props) => {
       <Box
         sx={{
           display: { sm: "grid" },
-          gridTemplateColumns: { sm: "50% 50%" },
+          gridTemplateColumns: { sm: "80% 20%" },
         }}
       >
         <Box
@@ -64,38 +64,6 @@ const RowRadioButtonsGroup = (Props: Props) => {
         >
           <Radio
             {...controlProps("1")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("3")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("5")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("7")}
-            sx={{
-              "&.Mui-checked": {
-                color: "#fc7703",
-              },
-            }}
-          />
-          <Radio
-            {...controlProps("9")}
             sx={{
               "&.Mui-checked": {
                 color: "#fc7703",
