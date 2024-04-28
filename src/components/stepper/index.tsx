@@ -11,12 +11,12 @@ import { IReport, IUser, useUserDataStore } from "@/store";
 import { Avatar } from "@mui/material";
 import RowRadioButtonsGroup from "../radioGroup";
 import { useState } from "react";
-import { getScore } from "@/utils/report";
+import { getScore, getScoreValue } from "@/utils/report";
 import { useRouter } from "next/navigation";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import { MainButton } from "../button";
 import { SectionCard } from "../card";
-import ScoreBar from "../scoreBar";
+import { SCORES } from "@/consts/report";
 
 const steps = [
   {
@@ -210,11 +210,7 @@ const Stepper = () => {
               display: "flex",
               justifyContent: { xs: "center", sm: "end" },
             }}
-          >
-            <Box sx={{ width: { sm: "50%" }, marginBottom: { xs: 3, sm: 0 } }}>
-              <ScoreBar />
-            </Box>
-          </Box>
+          ></Box>
           {steps[activeStep].factors?.map((item, key) => {
             return (
               <>
@@ -224,12 +220,15 @@ const Stepper = () => {
                     handleSelect={(data) =>
                       setScoreData({
                         ...scoreData,
-                        [(key + 1).toString()]: parseInt(data),
+                        [(key + 1).toString()]:
+                          parseInt(data) * getScoreValue(key),
                       })
                     }
-                    radioValue={reportData?.[steps[activeStep].id.toString()]?.[
-                      key + 1
-                    ]?.toString()}
+                    radioValue={
+                      reportData?.[steps[activeStep].id.toString()]?.[key + 1]
+                        ? "1"
+                        : ""
+                    }
                     userData={userData}
                   />
                 </Box>

@@ -1,4 +1,4 @@
-import { SEVERITY_LEVEL } from "@/consts/report";
+import { SCORES, SEVERITY_LEVEL } from "@/consts/report";
 import { IReport } from "@/store";
 
 const getScore = (data: IReport | undefined, stepData: any) => {
@@ -38,4 +38,21 @@ const getSeverityLevel = (severityLevel: string, score: number) => {
   }
 };
 
-export { getScore, getSeverityLevel };
+const getScoreValue = (key: number) => {
+  switch (key) {
+    case 0:
+      return SCORES.SCORE_1;
+    case 1:
+      return SCORES.SCORE_2;
+    case 2:
+      return SCORES.SCORE_3;
+    case 3:
+      return SCORES.SCORE_4;
+    case 4:
+      return SCORES.SCORE_5;
+    default:
+      return SCORES.SCORE_1;
+  }
+};
+
+export { getScore, getScoreValue };
