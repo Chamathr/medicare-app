@@ -116,7 +116,7 @@ const FinalDataFormComponent = () => {
             mt: 3,
           }}
         >
-          <Typography textTransform="uppercase" variant="h6">
+          <Typography textTransform="uppercase" variant="h6" color="text.secondary">
             Severity Level
           </Typography>
         </SectionCard>
@@ -146,6 +146,7 @@ const FinalDataFormComponent = () => {
             pl: 8,
             pr: 8,
             border: "1px solid #ffcc00",
+            color: "#00000099"
           }}
         >
           <Box>

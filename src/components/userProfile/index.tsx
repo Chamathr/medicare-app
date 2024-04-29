@@ -298,7 +298,7 @@ const ProfileCard = (data: any) => {
               }}
             >
               <Typography color="text.secondary" gutterBottom>
-                Neonatal ICU Stay
+                Genetic structural malformations
               </Typography>
               <Typography
                 color="text.secondary"
@@ -311,7 +311,9 @@ const ProfileCard = (data: any) => {
                 }}
               >
                 <Box sx={{ wordBreak: "break-word" }}>
-                  {data?.userData?.riskFactors?.neonatalICUStay ? "YES" : "NO"}
+                  {data?.userData?.riskFactors?.geneticStructuralMalformations
+                    ? "YES"
+                    : "NO"}
                 </Box>
               </Typography>
             </Box>
@@ -322,7 +324,7 @@ const ProfileCard = (data: any) => {
               }}
             >
               <Typography color="text.secondary" gutterBottom>
-                History Of Seizures
+                Medications and/or infections during pregnancy
               </Typography>
               <Typography
                 color="text.secondary"
@@ -335,7 +337,238 @@ const ProfileCard = (data: any) => {
                 }}
               >
                 <Box sx={{ wordBreak: "break-word" }}>
-                  {data?.userData?.riskFactors?.historyOfSeizures
+                  {data?.userData?.riskFactors
+                    ?.medicationsInfectionsDuringPregnancy
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Antepartum haemorrhage
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.antepartumHaemorrhage
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Hypoxic ischemic encephalopathy (HIE)
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.hypoxicIschemicEncephalopathy
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Hydrocephalus
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.hydrocephalus ? "YES" : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Neonatal meningitis/sepsis
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.neonatalMeningitisSepsis
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Kernicterus
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.kernicterus ? "YES" : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Neonatal hypoglycaemia
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.neonatalHypoglycaemia
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Cranio-cerebral trauma
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.cranioCerebralTrauma
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Apparent life-threatening event (ALTE)
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.apparentLifeThreateningEvent
+                    ? "YES"
+                    : "NO"}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Para-surgical trauma
+              </Typography>
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textTransform={"uppercase"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.paraSurgicalTrauma
                     ? "YES"
                     : "NO"}
                 </Box>
@@ -386,6 +619,30 @@ const ProfileCard = (data: any) => {
               >
                 <Box sx={{ wordBreak: "break-word" }}>
                   {data?.userData?.riskFactors?.neurologicalConditionsFamily}
+                </Box>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "50% 50%",
+              }}
+            >
+              <Typography color="text.secondary" gutterBottom>
+                Special Notes
+              </Typography>
+              <Typography
+                textTransform="capitalize"
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                  textAlign: "end",
+                }}
+              >
+                <Box sx={{ wordBreak: "break-word" }}>
+                  {data?.userData?.riskFactors?.specialNotes}
                 </Box>
               </Typography>
             </Box>

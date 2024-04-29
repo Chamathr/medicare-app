@@ -90,7 +90,7 @@ const ChildDataFormComponent = () => {
             mt: 3,
           }}
         >
-          <Typography textTransform="uppercase" variant="h6">
+          <Typography textTransform="uppercase" variant="h6" color="text.secondary">
             Child Data
           </Typography>
         </SectionCard>

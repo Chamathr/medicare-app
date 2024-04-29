@@ -161,12 +161,12 @@ const Stepper = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: 50,
+          minHeight: 50,
           pl: 2,
           mt: 3,
         }}
       >
-        <Typography textTransform="uppercase" variant="h6">
+        <Typography textTransform="uppercase" variant="h6" color="text.secondary">
           {steps[activeStep].label}
         </Typography>
       </SectionCard>

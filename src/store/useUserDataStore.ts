@@ -5,10 +5,20 @@ import type { StateCreator } from "zustand";
 export interface IRiskFactors {
   prematureBirth: boolean;
   lowBirthWeight: boolean;
-  neonatalICUStay: boolean;
-  historyOfSeizures: boolean;
+  geneticStructuralMalformations: boolean;
+  medicationsInfectionsDuringPregnancy: boolean;
+  antepartumHaemorrhage: boolean;
+  hypoxicIschemicEncephalopathy: boolean;
+  hydrocephalus: boolean;
+  neonatalMeningitisSepsis: boolean;
+  kernicterus: boolean;
+  neonatalHypoglycaemia: boolean;
+  cranioCerebralTrauma: boolean;
+  apparentLifeThreateningEvent: boolean;
+  paraSurgicalTrauma: boolean;
   neurologicalConditions?: string;
   neurologicalConditionsFamily?: string;
+  specialNotes?: string;
 }
 
 export interface IUserData {
