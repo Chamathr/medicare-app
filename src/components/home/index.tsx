@@ -67,7 +67,7 @@ const HomeComponent = () => {
                 fontSize: 20,
               }}
             >
-              LETS START
+              LETS STARTTT
             </MainButton>
           </Box>
         </Grid>
