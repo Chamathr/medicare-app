@@ -23,8 +23,20 @@ interface FormData {
   lowBirthWeight: boolean;
   neonatalICUStay: boolean;
   historyOfSeizures: boolean;
+  geneticStructuralMalformations: boolean;
+  medicationsInfectionsDuringPregnancy: boolean;
+  antepartumHaemorrhage: boolean;
+  hypoxicIschemicEncephalopathy: boolean;
+  hydrocephalus: boolean;
+  neonatalMeningitisSepsis: boolean;
+  kernicterus: boolean;
+  neonatalHypoglycaemia: boolean;
+  cranioCerebralTrauma: boolean;
+  apparentLifeThreateningEvent: boolean;
+  paraSurgicalTrauma: boolean;
   neurologicalConditions?: string;
   neurologicalConditionsFamily?: string;
+  specialNotes?: string;
 }
 
 const RiskFactorDataFormComponent = () => {
@@ -38,9 +50,26 @@ const RiskFactorDataFormComponent = () => {
       lowBirthWeight: riskFactorData?.lowBirthWeight || false,
       neonatalICUStay: riskFactorData?.neonatalICUStay || false,
       historyOfSeizures: riskFactorData?.historyOfSeizures || false,
+      geneticStructuralMalformations:
+        riskFactorData?.geneticStructuralMalformations || false,
+      medicationsInfectionsDuringPregnancy:
+        riskFactorData?.medicationsInfectionsDuringPregnancy || false,
+      antepartumHaemorrhage: riskFactorData?.antepartumHaemorrhage || false,
+      hypoxicIschemicEncephalopathy:
+        riskFactorData?.hypoxicIschemicEncephalopathy || false,
+      hydrocephalus: riskFactorData?.hydrocephalus || false,
+      neonatalMeningitisSepsis:
+        riskFactorData?.neonatalMeningitisSepsis || false,
+      kernicterus: riskFactorData?.kernicterus || false,
+      neonatalHypoglycaemia: riskFactorData?.neonatalHypoglycaemia || false,
+      cranioCerebralTrauma: riskFactorData?.cranioCerebralTrauma || false,
+      apparentLifeThreateningEvent:
+        riskFactorData?.apparentLifeThreateningEvent || false,
+      paraSurgicalTrauma: riskFactorData?.paraSurgicalTrauma || false,
       neurologicalConditions: riskFactorData?.neurologicalConditions || "",
       neurologicalConditionsFamily:
         riskFactorData?.neurologicalConditionsFamily || "",
+      specialNotes: riskFactorData?.specialNotes || "",
     };
   }, [riskFactorData]);
 
@@ -103,16 +132,18 @@ const RiskFactorDataFormComponent = () => {
           <Box>
             <FormControl component="fieldset">
               <FormLabel component="legend">Premature birth?</FormLabel>
-              <Box sx={{
-                display: 'flex'
-              }}>
+              <Box
+                sx={{
+                  display: "flex",
+                }}
+              >
                 <Controller
                   name="prematureBirth"
                   control={control}
                   render={({ field }) => (
                     <RadioGroup
                       {...field}
-                      sx={{ display: "flex", flexDirection: "column" }}
+                      sx={{ display: "flex", flexDirection: "row" }}
                     >
                       <FormControlLabel
                         value="true"
@@ -155,7 +186,7 @@ const RiskFactorDataFormComponent = () => {
                 render={({ field }) => (
                   <RadioGroup
                     {...field}
-                    sx={{ display: "flex", flexDirection: "column" }}
+                    sx={{ display: "flex", flexDirection: "row" }}
                   >
                     <FormControlLabel
                       value="true"
@@ -197,7 +228,7 @@ const RiskFactorDataFormComponent = () => {
                 render={({ field }) => (
                   <RadioGroup
                     {...field}
-                    sx={{ display: "flex", flexDirection: "column" }}
+                    sx={{ display: "flex", flexDirection: "row" }}
                   >
                     <FormControlLabel
                       value="true"
@@ -239,7 +270,479 @@ const RiskFactorDataFormComponent = () => {
                 render={({ field }) => (
                   <RadioGroup
                     {...field}
-                    sx={{ display: "flex", flexDirection: "column" }}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                Genetic structural malformations?
+              </FormLabel>
+              <Controller
+                name="geneticStructuralMalformations"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                Medications and/or infections during pregnancy?
+              </FormLabel>
+              <Controller
+                name="medicationsInfectionsDuringPregnancy"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Antepartum haemorrhage?</FormLabel>
+              <Controller
+                name="antepartumHaemorrhage"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                Hypoxic ischemic encephalopathy (HIE)?
+              </FormLabel>
+              <Controller
+                name="hypoxicIschemicEncephalopathy"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Hydrocephalus?</FormLabel>
+              <Controller
+                name="hydrocephalus"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                Neonatal meningitis/sepsis?
+              </FormLabel>
+              <Controller
+                name="neonatalMeningitisSepsis"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Kernicterus?</FormLabel>
+              <Controller
+                name="kernicterus"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Neonatal hypoglycaemia?</FormLabel>
+              <Controller
+                name="neonatalHypoglycaemia"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Cranio-cerebral trauma?</FormLabel>
+              <Controller
+                name="cranioCerebralTrauma"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                Apparent life-threatening event (ALTE)?
+              </FormLabel>
+              <Controller
+                name="apparentLifeThreateningEvent"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <FormControlLabel
+                      value="true"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#ffcc00",
+                            },
+                          }}
+                        />
+                      }
+                      label="No"
+                    />
+                  </RadioGroup>
+                )}
+              />
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Para-surgical trauma?</FormLabel>
+              <Controller
+                name="paraSurgicalTrauma"
+                control={control}
+                render={({ field }) => (
+                  <RadioGroup
+                    {...field}
+                    sx={{ display: "flex", flexDirection: "row" }}
                   >
                     <FormControlLabel
                       value="true"
@@ -317,6 +820,30 @@ const RiskFactorDataFormComponent = () => {
             {errors.neurologicalConditionsFamily && (
               <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
                 {errors.neurologicalConditionsFamily.message}
+              </Box>
+            )}
+          </Box>
+          <Box>
+            <Controller
+              name="specialNotes"
+              control={control}
+              render={({ field }) => (
+                <>
+                  <TextField
+                    {...field}
+                    id="specialNotes"
+                    label="Special Notes"
+                    variant="outlined"
+                    error={!!errors.specialNotes}
+                    size="small"
+                    fullWidth
+                  />
+                </>
+              )}
+            />
+            {errors.specialNotes && (
+              <Box sx={{ color: "red", mt: 1, fontSize: "12px" }}>
+                {errors.specialNotes.message}
               </Box>
             )}
           </Box>
