@@ -7,8 +7,6 @@ interface IReprtDetails {
 interface IRiskFactors {
   prematureBirth: boolean;
   lowBirthWeight: boolean;
-  neonatalICUStay: boolean;
-  historyOfSeizures: boolean;
   geneticStructuralMalformations: boolean;
   medicationsInfectionsDuringPregnancy: boolean;
   antepartumHaemorrhage: boolean;

@@ -5,8 +5,6 @@ import type { StateCreator } from "zustand";
 export interface IRiskFactors {
   prematureBirth: boolean;
   lowBirthWeight: boolean;
-  neonatalICUStay: boolean;
-  historyOfSeizures: boolean;
   geneticStructuralMalformations: boolean;
   medicationsInfectionsDuringPregnancy: boolean;
   antepartumHaemorrhage: boolean;

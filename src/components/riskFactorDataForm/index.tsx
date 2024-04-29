@@ -21,8 +21,6 @@ import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 interface FormData {
   prematureBirth: boolean;
   lowBirthWeight: boolean;
-  neonatalICUStay: boolean;
-  historyOfSeizures: boolean;
   geneticStructuralMalformations: boolean;
   medicationsInfectionsDuringPregnancy: boolean;
   antepartumHaemorrhage: boolean;
@@ -48,8 +46,6 @@ const RiskFactorDataFormComponent = () => {
     return {
       prematureBirth: riskFactorData?.prematureBirth || false,
       lowBirthWeight: riskFactorData?.lowBirthWeight || false,
-      neonatalICUStay: riskFactorData?.neonatalICUStay || false,
-      historyOfSeizures: riskFactorData?.historyOfSeizures || false,
       geneticStructuralMalformations:
         riskFactorData?.geneticStructuralMalformations || false,
       medicationsInfectionsDuringPregnancy:
@@ -112,7 +108,7 @@ const RiskFactorDataFormComponent = () => {
             mt: 3,
           }}
         >
-          <Typography textTransform="uppercase" variant="h6">
+          <Typography textTransform="uppercase" variant="h6" color="text.secondary">
             Risk Factors
           </Typography>
         </SectionCard>
@@ -127,6 +123,7 @@ const RiskFactorDataFormComponent = () => {
             pl: 8,
             pr: 8,
             border: "1px solid #ffcc00",
+            color: "#00000099"
           }}
         >
           <Box>
@@ -182,90 +179,6 @@ const RiskFactorDataFormComponent = () => {
               <FormLabel component="legend">Low Birth Weight?</FormLabel>
               <Controller
                 name="lowBirthWeight"
-                control={control}
-                render={({ field }) => (
-                  <RadioGroup
-                    {...field}
-                    sx={{ display: "flex", flexDirection: "row" }}
-                  >
-                    <FormControlLabel
-                      value="true"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#ffcc00",
-                            },
-                          }}
-                        />
-                      }
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="false"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#ffcc00",
-                            },
-                          }}
-                        />
-                      }
-                      label="No"
-                    />
-                  </RadioGroup>
-                )}
-              />
-            </FormControl>
-          </Box>
-          <Box>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Neonatal ICU Stay?</FormLabel>
-              <Controller
-                name="neonatalICUStay"
-                control={control}
-                render={({ field }) => (
-                  <RadioGroup
-                    {...field}
-                    sx={{ display: "flex", flexDirection: "row" }}
-                  >
-                    <FormControlLabel
-                      value="true"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#ffcc00",
-                            },
-                          }}
-                        />
-                      }
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="false"
-                      control={
-                        <Radio
-                          sx={{
-                            "&.Mui-checked": {
-                              color: "#ffcc00",
-                            },
-                          }}
-                        />
-                      }
-                      label="No"
-                    />
-                  </RadioGroup>
-                )}
-              />
-            </FormControl>
-          </Box>
-          <Box>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">History Of Seizures?</FormLabel>
-              <Controller
-                name="historyOfSeizures"
                 control={control}
                 render={({ field }) => (
                   <RadioGroup

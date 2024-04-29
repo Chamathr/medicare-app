@@ -298,56 +298,6 @@ const ProfileCard = (data: any) => {
               }}
             >
               <Typography color="text.secondary" gutterBottom>
-                Neonatal ICU Stay
-              </Typography>
-              <Typography
-                color="text.secondary"
-                gutterBottom
-                textTransform={"uppercase"}
-                sx={{
-                  display: "flex",
-                  justifyContent: "end",
-                  textAlign: "end",
-                }}
-              >
-                <Box sx={{ wordBreak: "break-word" }}>
-                  {data?.userData?.riskFactors?.neonatalICUStay ? "YES" : "NO"}
-                </Box>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: "50% 50%",
-              }}
-            >
-              <Typography color="text.secondary" gutterBottom>
-                History Of Seizures
-              </Typography>
-              <Typography
-                color="text.secondary"
-                gutterBottom
-                textTransform={"uppercase"}
-                sx={{
-                  display: "flex",
-                  justifyContent: "end",
-                  textAlign: "end",
-                }}
-              >
-                <Box sx={{ wordBreak: "break-word" }}>
-                  {data?.userData?.riskFactors?.historyOfSeizures
-                    ? "YES"
-                    : "NO"}
-                </Box>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: "50% 50%",
-              }}
-            >
-              <Typography color="text.secondary" gutterBottom>
                 Genetic structural malformations
               </Typography>
               <Typography
