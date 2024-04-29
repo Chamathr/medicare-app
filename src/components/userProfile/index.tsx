@@ -7,7 +7,6 @@ import dayjs from "dayjs";
 
 const ProfileCard = (data: any) => {
   const router = useRouter();
-
   return (
     <>
       <Box
