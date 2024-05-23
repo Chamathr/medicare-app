@@ -23,7 +23,6 @@ const useStyles = makeStyles(() => ({
 
 const HomeComponent = () => {
   const classes = useStyles();
-
   const router = useRouter();
 
   return (
