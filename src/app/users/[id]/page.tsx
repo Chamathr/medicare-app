@@ -22,6 +22,7 @@ const Users = () => {
     );
 
   if (error) return <Box>Error: {error.toString()}</Box>;
+  
   return (
     <>
       <ProfileCard userData={userData?.data} />
